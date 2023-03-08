@@ -1,0 +1,8 @@
+cleaning_company\Customer.class
+cleaning_company\Invoice.class
+cleaning_company\OrderStatus.class
+cleaning_company\Order.class
+cleaning_company\User.class
+cleaning_company\Main.class
+cleaning_company\Worker.class
+cleaning_company\Product.class
