@@ -9,16 +9,30 @@ public class Product {
 	public Product() {
 		
 	}
-	
-	public Product(String _category, String _name, String _description, Customer _customer) {
-		this();
-		category = _category;
-		name = _name;
-		description = _description;
-		customer = _customer;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	
+
+	public void setCategory(String category2) {
+		this.category = category2;
+		
+	}
+
+	public void setDescription(String description2) {
+		this.description = description2;
+		
+	}
+
 	public String getName() {
 		return name;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+	
+	public String getDescription() {
+		return description;
 	}
 }

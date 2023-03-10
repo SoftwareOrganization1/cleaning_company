@@ -3,10 +3,11 @@ package cleaning_company;
 import java.util.ArrayList;
 
 enum OrderStatus {
-	  WAITING,
-	  IN_TREATMENT,
-	  COMPLETE
-	}
+	WAITING,
+	IN_TREATMENT,
+	DECLINED,
+	COMPLETE
+};
 
 public class Order {
 	protected ArrayList<Product> products = new ArrayList<Product>();
@@ -18,13 +19,6 @@ public class Order {
 	
 	public Order() {
 		status = OrderStatus.WAITING;
-	}
-	
-	public Order(Customer _customer, String _address, ArrayList<Product> _products) {
-		this();
-		customer = _customer;
-		address = _address;
-		products = _products;
 	}
 	
 	
@@ -52,12 +46,27 @@ public class Order {
 		worker = w;
 	}
 	
-	public void startOrder(Worker w) {
+	public void startOrder(Worker w, double price) {
 		worker = w;
 		this.setStatus(OrderStatus.IN_TREATMENT);
+		invoice = new Invoice();
+		invoice.setPrice(price);
+		invoice.setOrder(this);
+	}
+	
+	public void rejectOrder() {
+		this.setStatus(OrderStatus.DECLINED);
 	}
 	
 	public Customer getCustomer() {
 		return customer;
+	}
+
+	public void setAddress(String address2) {
+		address = address2;
+	}
+
+	public String getAddress() {
+		return address;
 	}
 }

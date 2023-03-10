@@ -1,39 +1,40 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
-@tag
-Feature: Order
-  I want to use this template for my feature file
+ Feature: Order
 
-@tag1
-    Scenario: creat order
-  Given customer adress and products
-    When creating new order  
-    Then Order status should be waiting
+  Scenario Outline: Customer Create Order
+    Given products list with <category> <name> and <description>
+    When customer enter <address>
+    And customer create order
+    Then order status should be waiting
+    And order product details should be as <result_category> <result_name> and <result_description>
+    And order address should be <result_address>
     
-  @tag2
-  Scenario: Add products to order
-  Given i have an order
-    When Adding products to order
-    Then i should get the products 
+
+    Examples:
+      | category | name                 | description        | address           | result_category | result_name          | result_description | result_address    |
+      | "carpet" | "living room carpet" | "3 * 4 m red"      | "Nablus - Baita"  | "carpet"        | "living room carpet" | "3 * 4 m red"      | "Nablus - Baita"  |
+      | "cover"  | "bed cover"          | "1.5 * 2 m white"  | "Nablus - awarta" | "cover"         | "bed cover"          | "1.5 * 2 m white"  | "Nablus - awarta" |
+      
+	Scenario Outline: Admin Accept Order
+    Given order with address <address> and products list details <category> <name> <description>
+    When admin enter price <price>
+    And admin choose worker
+    And admin accept order
+    Then order status should be in treatment
     
-  @tag3
-  Scenario: Start treatment order
-  Given i have an order
-    When Start treatment order
-    Then Order status should be in treatmen
+
+    Examples:
+      | category | name                 | description        | address           | price |
+      | "carpet" | "living room carpet" | "3 * 4 m red"      | "Nablus - Baita"  | 70.5  |
+      | "cover"  | "bed cover"          | "1.5 * 2 m white"  | "Nablus - awarta" | 50.5  |
+      
+	Scenario Outline: Admin reject Order
+    Given order with address <address> and products list details <category> <name> <description>
+    When admin reject order
+    Then order status should be declined
+    
+
+    Examples:
+      | category | name                 | description        | address           |
+      | "carpet" | "living room carpet" | "3 * 4 m red"      | "Nablus - Baita"  |
+      | "cover"  | "bed cover"          | "1.5 * 2 m white"  | "Nablus - awarta" |
+      

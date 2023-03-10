@@ -23,6 +23,13 @@ public class User {
 		
 	}
 	
+	public User(int _id, String _name, String _phone, String _address) {
+		id = _id;
+		name = _name;
+		phone = _phone;
+		address = _address;
+	}
+	
 	public User(int _id, String _email, String _password,  String _name, String _phone, String _address, String _type) {
 		//this();
 		id = _id;
