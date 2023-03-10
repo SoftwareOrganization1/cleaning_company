@@ -1,27 +1,33 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
-@tag
-Feature: Product
-  I want to use this template for my feature file
+ Feature: Product
 
-  @tag1
-  Scenario: Create Product
-    Given category "cat" name "carpet" description "description"
-    When I create a product
-    Then I should read the name
+  Scenario Outline: Create Product Check
+    Given the customer go to add product page
+    When customer enter <category> <name> and <description>
+    Then customer should read product details as <result_category> <result_name> and <result_description>
+
+    Examples:
+      | category | name                 | description        | result_category | result_name          | result_description |
+      | "carpet" | "living room carpet" | "3 * 4 m red"      | "carpet"        | "living room carpet" | "3 * 4 m red"      |
+      | "cover"  | "bed cover"          | "1.5 * 2 m white"  | "cover"         | "bed cover"          | "1.5 * 2 m white"  |
+
+      
+	Scenario Outline: Update Product Details Check
+    Given product with <category> <name> and <description>
+    When customer enter <new_category> <new_name> and <new_description>
+    Then customer should read product details as <result_category> <result_name> and <result_description>
+
+    Examples:
+      | category | name                 | description        | new_category | new_name             | new_description    | result_category | result_name          | result_description |
+      | "carpet" | "living room carpet" | "3 * 4 m red"      | "cover"      | "bed cover"          | "1.5 * 2 m white"  | "cover"         | "bed cover"          | "1.5 * 2 m white"  |
+      | "cover"  | "bed cover"          | "1.5 * 2 m white"  | "carpet"     | "living room carpet" | "3 * 4 m red"      | "carpet"        | "living room carpet" | "3 * 4 m red"      |
+      
+	Scenario Outline: Delete Product Check
+     Given product with <category> <name> and <description>
+    When customer delete the product
+    Then product should be read as null
+
+    Examples:
+      | category | name                 | description       |
+      | "carpet" | "living room carpet" | "3 * 4 m red"     |
+      | "cover"  | "bed cover"          | "1.5 * 2 m white" |
+     

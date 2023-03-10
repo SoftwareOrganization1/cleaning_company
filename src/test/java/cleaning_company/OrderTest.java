@@ -9,68 +9,134 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class OrderTest {
-	Order order;
 	Worker worker;
-	Customer customer;
+	Order order;
 	String address;
-	ArrayList<Product> products;
-
-	public OrderTest(Worker w) {
-		worker = w;
+	ArrayList<Product> products = new ArrayList<Product>();
+	double price;
+	
+	public OrderTest(Order o) {
+		order = o;
+	}
+	
+	@Given("products list with {string} {string} and {string}")
+	public void products_list_with_details(String category, String name, String description) {
+		System.out.printf("given product details with datials %s %s %s\n", category, name, description);
+		Product product = new Product();
+		product.setName(name);
+		product.setCategory(category);
+		product.setDescription(description);
+		products.add(product);
 	}
 
-	@Given("customer adress and products")
-	public void customer_adress_and_products() {
-		customer = new Customer();
-		address = "Ad";
-		products = new ArrayList<Product>();
+	@When("customer enter {string}")
+	public void customer_enter_address(String address) {
+		System.out.println("the customer enters address");
+		this.address = address;
 	}
 
-	@When("creating new order")
-	public void creating_new_order() {
-		order = new Order(customer, address, products);
+	@When("customer create order")
+	public void customer_create_order() {
+		System.out.println("the customer creates order");
+		order.setProducts(products);
+		order.setAddress(address);
 	}
 
-	@Then("Order status should be waiting")
+	@Then("order address should be {string}")
+	public void order_address_should_be(String address) {
+		if (order.getAddress().equals(address)) {
+			System.out.println("order address is correct");
+			assertTrue(true);
+		}
+		else {
+			assertTrue(false);
+		}
+	}
+
+	@Then("order status should be waiting")
 	public void order_status_should_be_waiting() {
-		assertTrue(OrderStatus.WAITING == order.getStatus());
+		if (order.getStatus() == OrderStatus.WAITING) {
+			System.out.println("order status is waiting");
+			assertTrue(true);
+		}
+		else {
+			assertTrue(false);
+		}
 	}
 
-	@Given("i have an order and products")
-	public void i_have_an_order_and_products() {
-		customer = new Customer();
-		address = "Ad";
-		products = new ArrayList<Product>();
-		order = new Order(customer, address, products);
+	@Then("order product details should be as {string} {string} and {string}")
+	public void order_product_details_should_be_as_and(String category, String name, String description) {
+	    Product p = order.getProducts().get(0);
+	    if (p.getName().equals(name) && p.getCategory().equals(category) && p.getDescription().equals(description)) {
+			System.out.println("order product details are correct");
+			assertTrue(true);
+		}
+		else {
+			assertTrue(false);	
+		}
+	}
+	
+	@Given("order with address {string} and products list details {string} {string} {string}")
+	public void order_with_address_and_products_list_details(String address, String category, String name, String description) {
+		System.out.println("given order");
+		products.clear();
+		Product product = new Product();
+		product.setName(name);
+		product.setCategory(category);
+		product.setDescription(description);
+		products.add(product);
+		
+		order.setAddress(address);
+		order.setProducts(products);;
 	}
 
-	@When("Adding products to order")
-	public void adding_products_to_order() {
-		ArrayList<Product> ps = new ArrayList<Product>();		
-		Product p = new Product();
-		ps.add(p);
-		order.setProducts(ps);
+	@When("admin enter price {double}")
+	public void admin_enter_price(Double double1) {
+		System.out.println("admin enter price");
+	    price = double1;
 	}
 
-	@Then("i should get the products")
-	public void i_should_get_the_products() {
-		ArrayList<Product> ps = order.getProducts();
-		assertTrue(ps != null && ps.size() == 1);
+	@When("admin choose worker")
+	public void admin_choose_worker() {
+		System.out.println("admin choose worker");
+		worker = new Worker();
 	}
 
-	@Given("i have an order")
-	public void i_have_an_order() {
-		order = new Order();
+
+	@When("admin accept order")
+	public void admin_accept_order() {
+		System.out.println("admin accept order");
+	    order.startOrder(worker, price);
 	}
 
-	@When("Start treatment order")
-	public void start_treatment_order() {
-		order.startOrder(worker);
+	@Then("order status should be in treatment")
+	public void order_status_should_be_in_treatment() {
+		if (order.getStatus() == OrderStatus.IN_TREATMENT) {
+			System.out.println("order status is in treatment");
+			assertTrue(true);
+		}
+		else {
+			assertTrue(false);
+		}
 	}
-
-	@Then("Order status should be in treatmen")
-	public void order_status_should_be_in_treatmen() {
-		assertTrue(order.getStatus() == OrderStatus.IN_TREATMENT);
+	
+	
+	
+	@When("admin reject order")
+	public void admin_reject_order() {
+		System.out.println("admin reject order");
+		order.rejectOrder();
+	}
+	
+	@Then("order status should be declined")
+	public void order_status_should_be_declined() {
+		if (order.getStatus() == OrderStatus.DECLINED) {
+			System.out.println("order status is declined");
+			assertTrue(true);
+		}
+		else {
+			assertTrue(false);
+		}
 	}
 
 }
