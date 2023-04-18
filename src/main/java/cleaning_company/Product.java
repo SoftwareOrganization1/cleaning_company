@@ -1,38 +1,34 @@
 package cleaning_company;
 
 public class Product {
-	protected String category;
+	
 	protected String name;
 	protected String description;
-	protected Customer customer;
+	protected String specialTraetment;
+	protected Customer owner;
 
 	public Product() {
-		
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setCategory(String category2) {
-		this.category = category2;
-		
-	}
-
-	public void setDescription(String description2) {
-		this.description = description2;
-		
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getCategory() {
-		return category;
+    }
+	
+	 public String toString() {
+	 	  return "Product name: "+this.name+" \nProduct Description: "+ this.description+" \nspecial treatment: "+this.specialTraetment
+	 			  +"\nCustomer: "+this.owner;
+	    }
+	
+	public Product( String _name, String _description, Customer _owner,String _specialTraetment) {
+		this();
+		specialTraetment = _specialTraetment;
+		name = _name;
+		description = _description;
+		owner = _owner;
 	}
 	
-	public String getDescription() {
-		return description;
+//	public Customer Owner(Customer owner1) {
+//		owner1 = this.owner;
+//		return owner;
+//	}
+	
+	public String getName() {
+		return name;
 	}
 }

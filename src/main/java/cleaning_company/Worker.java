@@ -8,11 +8,19 @@ public class Worker extends User {
 	
 	public Worker() {
 		super();
+		
 	}
 	
-	public Worker(int _id, String _name, String _phone, String _address) {
-		super(_id, _name, _phone, _address);
+	public Worker(int _id, String _password, String _firstName,String _lastName, String _phone) {
+			//this();
+			id = _id;
+			lastName= _lastName;
+			firstName = _firstName;
+			phone = _phone;
+			password = _password;
 	}
+	
+	
 	
 	public boolean setCurrentOrder(Order o) {
 		if (currendOrder != null) {

@@ -1,7 +1,7 @@
 package cleaning_company;
 
 public class Invoice {
-	protected Order order;
+	protected Product order;
 	protected double price = 0.0;
 	protected double discount = 0.0;
 	
