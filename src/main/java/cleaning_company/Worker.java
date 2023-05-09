@@ -1,37 +1,41 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package cleaning_company;
 
-import java.util.ArrayList;
+/**
+ *
+ * @author Deaa
+ */
+public class Worker {
+    int id;
+    String name;
+    String email;
+    String password;
+    String phone;
+    String address;
+    int numberOfOrder=0;
+     
 
-public class Worker extends User {
-	protected ArrayList<Order> completedOrders = new ArrayList<Order>();
-	protected Order currendOrder = null;
-	
-	public Worker() {
-		super();
-		
-	}
-	
-	public Worker(int _id, String _password, String _firstName,String _lastName, String _phone) {
-			//this();
-			id = _id;
-			lastName= _lastName;
-			firstName = _firstName;
-			phone = _phone;
-			password = _password;
-	}
-	
-	
-	
-	public boolean setCurrentOrder(Order o) {
-		if (currendOrder != null) {
-			currendOrder = o;
-			currendOrder.startOrder(this);
-			return true;
-		}
-		return false;
-	}
-	
-	public void setCompletedOrders(ArrayList<Order> _completedOrders) {
-		completedOrders = _completedOrders;
-	}
+    //public static ArrayList<User> allUsers;
+    public Worker() {
+
+    }
+
+    //User type is ADMIN
+    public Worker(String _email, String _password) {
+            email = _email;
+            password = _password;
+    }
+    
+    @Override
+    public String toString() {
+       return String.format("id: %d , name : %s ,email is %s, phone : %s, address: %s",id, name, email, phone, address);
+    }
+    
+    public String[] toArrayString() {
+        String [] row = {String.valueOf(id),name,email,phone, address};
+        return row;
+    }
 }

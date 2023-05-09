@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 public class Main extends JFrame{
 
 	public static void main(String[] args) {
-		SignUpJFrame frame = new SignUpJFrame();
+		LoginJFrame frame = new LoginJFrame();
 		frame.setVisible(true);
       // JOptionPane.showMessageDialog(null, "hello");
 	}
