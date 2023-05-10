@@ -8,7 +8,6 @@ public class Main extends JFrame{
 	public static void main(String[] args) {
 		LoginJFrame frame = new LoginJFrame();
 		frame.setVisible(true);
-      // JOptionPane.showMessageDialog(null, "hello");
 	}
 
 }
