@@ -1,10 +1,15 @@
 package cleaning_company;
 
-public class Main {
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class Main extends JFrame{
 
 	public static void main(String[] args) {
-		System.out.println("Hello");
-
+		LoginJFrame frame = new LoginJFrame();
+		frame.setVisible(true);
+      // JOptionPane.showMessageDialog(null, "hello");
 	}
 
 }
+ 

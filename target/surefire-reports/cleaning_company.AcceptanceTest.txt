@@ -1,4 +1,495 @@
 -------------------------------------------------------------------------------
 Test set: cleaning_company.AcceptanceTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.86 sec
+Tests run: 21, Failures: 0, Errors: 21, Skipped: 0, Time elapsed: 2.178 sec <<< FAILURE!
+NewOrder Check #1(CreateOrderF2)  Time elapsed: 0.249 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'the customeropen open add order frame' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("the customeropen open add order frame")
+public void theCustomeropenOpenAddOrderFrame() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("customer enter {int} and {string} and {string} and {int} and {string}")
+public void customerEnterAndAndAndAnd(Integer int1, String string, String string2, Integer int2, String string3) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("new Order result will be {string} empty result mean order created successfully")
+public void newOrderResultWillBeEmptyResultMeanOrderCreatedSuccessfully(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+NewOrder Check #2(CreateOrderF2)  Time elapsed: 0.011 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'the customeropen open add order frame' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("the customeropen open add order frame")
+public void theCustomeropenOpenAddOrderFrame() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("customer enter {int} and {string} and {string} and {int} and {string}")
+public void customerEnterAndAndAndAnd(Integer int1, String string, String string2, Integer int2, String string3) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("new Order result will be {string} empty result mean order created successfully")
+public void newOrderResultWillBeEmptyResultMeanOrderCreatedSuccessfully(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+NewOrder Check #3(CreateOrderF2)  Time elapsed: 0.012 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'the customeropen open add order frame' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("the customeropen open add order frame")
+public void theCustomeropenOpenAddOrderFrame() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("customer enter {int} and {string} and {string} and {int} and {string}")
+public void customerEnterAndAndAndAnd(Integer int1, String string, String string2, Integer int2, String string3) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("new Order result will be {string} empty result mean order created successfully")
+public void newOrderResultWillBeEmptyResultMeanOrderCreatedSuccessfully(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+create invoice #1(invoice)  Time elapsed: 0.013 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'customer create order and the admin open create invoice frame for created order' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("customer create order and the admin open create invoice frame for created order")
+public void customerCreateOrderAndTheAdminOpenCreateInvoiceFrameForCreatedOrder() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("admin enter {int} and {int}")
+public void adminEnterAnd(Integer int1, Integer int2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the invoice total amount will be {int}")
+public void theInvoiceTotalAmountWillBe(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+create invoice #2(invoice)  Time elapsed: 0.012 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'customer create order and the admin open create invoice frame for created order' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("customer create order and the admin open create invoice frame for created order")
+public void customerCreateOrderAndTheAdminOpenCreateInvoiceFrameForCreatedOrder() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("admin enter {int} and {int}")
+public void adminEnterAnd(Integer int1, Integer int2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the invoice total amount will be {int}")
+public void theInvoiceTotalAmountWillBe(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+create invoice #3(invoice)  Time elapsed: 0.009 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'customer create order and the admin open create invoice frame for created order' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("customer create order and the admin open create invoice frame for created order")
+public void customerCreateOrderAndTheAdminOpenCreateInvoiceFrameForCreatedOrder() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("admin enter {int} and {int}")
+public void adminEnterAnd(Integer int1, Integer int2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("the invoice total amount will be {int}")
+public void theInvoiceTotalAmountWillBe(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+SignUp Check #1(SignUp f1)  Time elapsed: 0.013 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'the applicatioen open on SignUp frame' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("the applicatioen open on SignUp frame")
+public void theApplicatioenOpenOnSignUpFrame() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter {string} and {string} and {string} and {string} and {string}")
+public void userEnterAndAndAndAnd(String string, String string2, String string3, String string4, String string5) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("SignUp result will be {string} empty result mean customer created successfully")
+public void signUpResultWillBeEmptyResultMeanCustomerCreatedSuccessfully(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+SignUp Check #2(SignUp f1)  Time elapsed: 0.014 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'the applicatioen open on SignUp frame' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("the applicatioen open on SignUp frame")
+public void theApplicatioenOpenOnSignUpFrame() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter {string} and {string} and {string} and {string} and {string}")
+public void userEnterAndAndAndAnd(String string, String string2, String string3, String string4, String string5) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("SignUp result will be {string} empty result mean customer created successfully")
+public void signUpResultWillBeEmptyResultMeanCustomerCreatedSuccessfully(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+SignUp Check #3(SignUp f1)  Time elapsed: 0.012 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'the applicatioen open on SignUp frame' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("the applicatioen open on SignUp frame")
+public void theApplicatioenOpenOnSignUpFrame() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter {string} and {string} and {string} and {string} and {string}")
+public void userEnterAndAndAndAnd(String string, String string2, String string3, String string4, String string5) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("SignUp result will be {string} empty result mean customer created successfully")
+public void signUpResultWillBeEmptyResultMeanCustomerCreatedSuccessfully(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+SignUp Check #4(SignUp f1)  Time elapsed: 0.012 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'the applicatioen open on SignUp frame' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("the applicatioen open on SignUp frame")
+public void theApplicatioenOpenOnSignUpFrame() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter {string} and {string} and {string} and {string} and {string}")
+public void userEnterAndAndAndAnd(String string, String string2, String string3, String string4, String string5) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("SignUp result will be {string} empty result mean customer created successfully")
+public void signUpResultWillBeEmptyResultMeanCustomerCreatedSuccessfully(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Title of your scenario(Title of your feature)  Time elapsed: 0.016 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'I want to write a step with precondition' and 6 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("I want to write a step with precondition")
+public void iWantToWriteAStepWithPrecondition() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Given("some other precondition")
+public void someOtherPrecondition() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("I complete action")
+public void iCompleteAction() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("some other action")
+public void someOtherAction() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("yet another action")
+public void yetAnotherAction() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("I validate the outcomes")
+public void iValidateTheOutcomes() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("check more outcomes")
+public void checkMoreOutcomes() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Title of your scenario outline #1(Title of your feature)  Time elapsed: 0.006 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'I want to write a step with name1' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("I want to write a step with name1")
+public void iWantToWriteAStepWithName1() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("I check for the {int} in step")
+public void iCheckForTheInStep(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("I verify the success in step")
+public void iVerifyTheSuccessInStep() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Title of your scenario outline #2(Title of your feature)  Time elapsed: 0.007 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'I want to write a step with name2' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("I want to write a step with name2")
+public void iWantToWriteAStepWithName2() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("I check for the {int} in step")
+public void iCheckForTheInStep(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("I verify the Fail in step")
+public void iVerifyTheFailInStep() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Login Check #1(Login)  Time elapsed: 0.007 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'the applicatioen open on Login frame' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("the applicatioen open on Login frame")
+public void theApplicatioenOpenOnLoginFrame() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter {string} and {string}")
+public void userEnterAnd(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should login as {string}")
+public void userShouldLoginAs(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Login Check #2(Login)  Time elapsed: 0.007 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'the applicatioen open on Login frame' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("the applicatioen open on Login frame")
+public void theApplicatioenOpenOnLoginFrame() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter {string} and {string}")
+public void userEnterAnd(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should login as {string}")
+public void userShouldLoginAs(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Login Check #3(Login)  Time elapsed: 0.006 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'the applicatioen open on Login frame' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("the applicatioen open on Login frame")
+public void theApplicatioenOpenOnLoginFrame() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter {string} and {string}")
+public void userEnterAnd(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should login as {string}")
+public void userShouldLoginAs(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Login Check #4(Login)  Time elapsed: 0.009 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'the applicatioen open on Login frame' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("the applicatioen open on Login frame")
+public void theApplicatioenOpenOnLoginFrame() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter {string} and {string}")
+public void userEnterAnd(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should login as {string}")
+public void userShouldLoginAs(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Customer Create Order #1(Order)  Time elapsed: 0.01 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'customer create order' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("customer create order")
+public void customerCreateOrder() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("customer add   products list with {string} {string} {string} and {string}")
+public void customerAddProductsListWithAnd(String string, String string2, String string3, String string4) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("order status should be waiting")
+public void orderStatusShouldBeWaiting() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("order product details should be as {string} {string} {string} and {string}")
+public void orderProductDetailsShouldBeAsAnd(String string, String string2, String string3, String string4) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Customer Create Order #2(Order)  Time elapsed: 0.011 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'customer create order' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("customer create order")
+public void customerCreateOrder() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("customer add   products list with {string} {string} {string} and {string}")
+public void customerAddProductsListWithAnd(String string, String string2, String string3, String string4) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("order status should be waiting")
+public void orderStatusShouldBeWaiting() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("order product details should be as {string} {string} {string} and {string}")
+public void orderProductDetailsShouldBeAsAnd(String string, String string2, String string3, String string4) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Admin Accept Order #1(Order)  Time elapsed: 0.011 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'order with address "Nablus - Baita" and products list details "carpet" "living room carpet" "3 * 4 m red"' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("order with address {string} and products list details {string} {string} {string}")
+public void orderWithAddressAndProductsListDetails(String string, String string2, String string3, String string4) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("admin enter price {double}")
+public void adminEnterPrice(Double double1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("admin choose worker")
+public void adminChooseWorker() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("admin accept order")
+public void adminAcceptOrder() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("order status should be in treatment")
+public void orderStatusShouldBeInTreatment() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Admin Accept Order #2(Order)  Time elapsed: 0.008 sec  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: The step 'order with address "Nablus - awarta" and products list details "cover" "bed cover" "1.5 * 2 m white"' and 4 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("order with address {string} and products list details {string} {string} {string}")
+public void orderWithAddressAndProductsListDetails(String string, String string2, String string3, String string4) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("admin enter price {double}")
+public void adminEnterPrice(Double double1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("admin choose worker")
+public void adminChooseWorker() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("admin accept order")
+public void adminAcceptOrder() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("order status should be in treatment")
+public void orderStatusShouldBeInTreatment() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
