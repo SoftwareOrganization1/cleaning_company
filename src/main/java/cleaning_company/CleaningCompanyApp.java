@@ -26,11 +26,7 @@ public class CleaningCompanyApp {
 		products = new ArrayList<>();
 		userLoaded = true;
 
-		User admin = new User();
-		admin.id = 1;
-		admin.name = "Admin";
-		admin.email = "admin@app.com";
-		admin.password = "123123";
+		User admin = new User(1, "Admin", "admin@app.com", "123123");
 		users.add(admin);
 
 		newCustomer("Customer 1", "customer1@app.com", "123123", "0569223344", "Palestine");

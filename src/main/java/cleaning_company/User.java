@@ -25,6 +25,14 @@ public class User {
             password = _password;
     }
     
+    public User(int _id, String _name, String _email, String _password) {
+	        id = _id;
+	        name = _name;
+	        email = _email;
+            password = _password;
+    }
+    
+    
     @Override
     public String toString() {
        return String.format("admin name : %s ,email is %s",name, email);
