@@ -11,7 +11,7 @@ public class AddEditCustomerDialog extends javax.swing.JDialog {
     public String result = "";
     public boolean isAdd = true;
     public boolean isRead = false;
-    public Customer customer;
+    transient public Customer customer;
     
     /**
      * Creates new form AddEditCustomerDialog
