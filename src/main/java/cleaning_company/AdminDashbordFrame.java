@@ -4,11 +4,14 @@ package cleaning_company;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+import javax.swing.SwingConstants;
+import java.util.logging.Logger;
 
 public class AdminDashbordFrame extends javax.swing.JFrame {
 
-    User user;
+	transient User user;
+	String address="Address";
+	private static final Logger logger = Logger.getLogger(AdminDashbordFrame.class.getName());
    
     public AdminDashbordFrame() {
         initComponents();
@@ -43,13 +46,15 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        jTabbedPane1.setTabPlacement(SwingConstants.LEFT);
         jTabbedPane1.setFont(new java.awt.Font("Segoe UI", 0, 14)); 
         jTabbedPane1.setName(""); 
 
         jPanel1.addComponentListener(new java.awt.event.ComponentAdapter() {
+        	
+        	@Override
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                jPanel1ComponentShown(evt);
+                jPanel1ComponentShown();
             }
         });
 
@@ -58,13 +63,14 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Customer", "Name", "Desc", "Quantity", "Worker", "Status", "Address", "Clean Cost", "Delivery Cost", "Discount", "Total amount", "Is Paid"
+                "Id", "Customer", "Name", "Desc", "Quantity", "Worker", "Status", address, "Clean Cost", "Delivery Cost", "Discount", "Total amount", "Is Paid"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
+            @Override
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
@@ -74,21 +80,21 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         jButton5.setText("Create invoice");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButton5ActionPerformed();
             }
         });
 
         jButton7.setText("Set as paid");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jButton7ActionPerformed();
             }
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "all", "waiting", "in treatment", "complete", " " }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox1ItemStateChanged(evt);
+                jComboBox1ItemStateChanged();
             }
         });
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -127,8 +133,10 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         jTabbedPane1.addTab("Orders", jPanel1);
 
         jPanel2.addComponentListener(new java.awt.event.ComponentAdapter() {
+        	
+        	@Override
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                jPanel2ComponentShown(evt);
+                jPanel2ComponentShown();
             }
         });
 
@@ -137,7 +145,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "Name", "Email", "Phone", "Address"
+                "id", "Name", "Email", "Phone", address
             }
         ) {
             Class[] types = new Class [] {
@@ -147,10 +155,12 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
                 false, false, false, false, false
             };
 
+            @Override
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
 
+            @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
@@ -160,14 +170,14 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         jButton1.setText("Add");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1ActionPerformed();
             }
         });
 
         jButton2.setText("Edit");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2ActionPerformed();
             }
         });
 
@@ -210,8 +220,10 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         jTabbedPane1.addTab("Customers", jPanel2);
 
         jPanel3.addComponentListener(new java.awt.event.ComponentAdapter() {
+        	
+        	@Override
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                jPanel3ComponentShown(evt);
+                jPanel3ComponentShown();
             }
         });
 
@@ -220,7 +232,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "Name", "Email", "Phone", "Address"
+                "id", "Name", "Email", "Phone", address
             }
         ) {
             Class[] types = new Class [] {
@@ -230,10 +242,12 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
                 false, false, false, false, false
             };
 
+            @Override
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
 
+            @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
@@ -259,8 +273,10 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         jTabbedPane1.addTab("Workers", jPanel3);
 
         jPanel4.addComponentListener(new java.awt.event.ComponentAdapter() {
+        	
+        	@Override
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                jPanel4ComponentShown(evt);
+                jPanel4ComponentShown();
             }
         });
 
@@ -325,36 +341,37 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         pack();
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton1ActionPerformed() {
         
         AddEditCustomerDialog dialog = new AddEditCustomerDialog(this, rootPaneCheckingEnabled);
         dialog.setVisible(rootPaneCheckingEnabled);
-        System.out.println(" the result" + dialog.result);
+        
+        logger.info("The result: " + dialog.result);
         if (dialog.result.equals("added")) {
             showCustomers();
         }
     }
 
-    private void jPanel2ComponentShown(java.awt.event.ComponentEvent evt) {
+    private void jPanel2ComponentShown() {
        
         showCustomers();
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton2ActionPerformed() {
         
         int selRow = jTable1.getSelectedRow();
-        System.out.println(selRow);
+        logger.info(String.valueOf(selRow));
         boolean found = false;
         Customer customer = null;
         if (selRow == -1) {
             JOptionPane.showMessageDialog(null,"Please select customer" );
         }
         if (selRow > -1) {
-            String customer_id = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
+            String customerId = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
             
             for (int i = 0; i < CleaningCompanyApp.customers.size(); i++) {
                 Customer c1 = CleaningCompanyApp.customers.get(i);
-                if (String.valueOf(c1.id).equals(customer_id)){
+                if (String.valueOf(c1.id).equals(customerId)){
                    customer = c1;
                    found = true;
                    break;
@@ -382,11 +399,11 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         
         int index = -1;
         if (selRow > -1) {
-            String customer_id = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
+            String customerId = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
             
             for (int i = 0; i < CleaningCompanyApp.customers.size(); i++) {
                 Customer c1 = CleaningCompanyApp.customers.get(i);
-                if (String.valueOf(c1.id).equals(customer_id)){
+                if (String.valueOf(c1.id).equals(customerId)){
                    found = true;
                    index = i;
                    break;
@@ -400,7 +417,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         
     }
 
-    private void jPanel3ComponentShown(java.awt.event.ComponentEvent evt) {
+    private void jPanel3ComponentShown() {
        
         showWorkers();
     }
@@ -411,13 +428,13 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         this.dispose();
     }
 
-    private void jPanel1ComponentShown(java.awt.event.ComponentEvent evt) {
+    private void jPanel1ComponentShown() {
       
         
         String status = jComboBox1.getSelectedItem().toString();
         showOrders(status);
     }
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton5ActionPerformed() {
         
         Product p = getProductFromTable();
         if (p != null) {
@@ -432,7 +449,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         }
     }
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton7ActionPerformed() {
         Product p = getProductFromTable();
         if (p !=null) {
              
@@ -454,12 +471,12 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         
     }
 
-    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {
+    private void jComboBox1ItemStateChanged() {
         String status = jComboBox1.getSelectedItem().toString();
         showOrders(status);
     }
 
-    private void jPanel4ComponentShown(java.awt.event.ComponentEvent evt) {
+    private void jPanel4ComponentShown() {
         
         showStatistics();
         
@@ -469,7 +486,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
     }
 
    
-    public static void main(String args[]) {
+    public static void main(String args) {
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

@@ -98,7 +98,7 @@ public class CustomerFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         AddEditOrderDialog dialog = new AddEditOrderDialog(this, rootPaneCheckingEnabled);
-        dialog.customer_id = customer.id;
+        dialog.customerId = customer.id;
         dialog.setVisible(rootPaneCheckingEnabled);
         System.out.println(" the result" + dialog.result);
         if (dialog.result.equals("added")) {

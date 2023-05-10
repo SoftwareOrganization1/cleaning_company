@@ -5,13 +5,13 @@ import javax.swing.JOptionPane;
 
 
 public class AddEditOrderDialog extends javax.swing.JDialog {
-
-    public int customer_id;
-    public String result = "";
-    public boolean isAdd = true;
-    public boolean isRead = false;
-    public Product product;
-    
+	
+     int customerId;
+     String result = "";
+     boolean isAdd = true;
+     boolean isRead = false;
+     Product product;
+     String UI="Segoe UI";
    
     public AddEditOrderDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -22,6 +22,12 @@ public class AddEditOrderDialog extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
    
     private void initComponents() {
+    	
+    	javax.swing.JButton jButton2 = new javax.swing.JButton();
+    	javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+    	javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+    	javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
+    	javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -37,41 +43,43 @@ public class AddEditOrderDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
+        	
+        	@Override
             public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+                formWindowOpened();
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jLabel1.setFont(new java.awt.Font(UI, 0, 18)); 
         jLabel1.setText("description");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jLabel2.setFont(new java.awt.Font(UI, 0, 18)); 
         jLabel2.setText("Name");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jLabel4.setFont(new java.awt.Font(UI, 0, 18)); 
         jLabel4.setText("Address");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jLabel5.setFont(new java.awt.Font(UI, 0, 18)); 
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jTextField1.setFont(new java.awt.Font(UI, 0, 18)); 
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jTextField2.setFont(new java.awt.Font(UI, 0, 18)); 
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jTextField3.setFont(new java.awt.Font(UI, 0, 18)); 
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jTextField4.setFont(new java.awt.Font(UI, 0, 18)); 
 
         jButton1.setText("Add Order");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1ActionPerformed();
             }
         });
 
         jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2ActionPerformed();
             }
         });
 
@@ -139,7 +147,7 @@ public class AddEditOrderDialog extends javax.swing.JDialog {
         pack();
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton1ActionPerformed() {
         
         String name = jTextField1.getText();
         String desc = jTextField2.getText();
@@ -154,7 +162,7 @@ public class AddEditOrderDialog extends javax.swing.JDialog {
 
         if (isAdd) {
 
-            String productResult = CleaningCompanyApp.newOrder(customer_id, name, desc,quantity,address);
+            String productResult = CleaningCompanyApp.newOrder(customerId, name, desc,quantity,address);
             if (!productResult.isEmpty()) {
                 JOptionPane.showMessageDialog(null,productResult);
             } else {
@@ -176,12 +184,12 @@ public class AddEditOrderDialog extends javax.swing.JDialog {
         }
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton2ActionPerformed() {
         
         this.dispose();
     }
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {
+    private void formWindowOpened() {
        
         if (product != null) {
             
@@ -196,7 +204,7 @@ public class AddEditOrderDialog extends javax.swing.JDialog {
         }
     }
     
-    public static void main(String args[]) {
+    public static void main(String args) {
        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -205,15 +213,11 @@ public class AddEditOrderDialog extends javax.swing.JDialog {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddEditOrderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddEditOrderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddEditOrderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } 
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AddEditOrderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -231,11 +235,7 @@ public class AddEditOrderDialog extends javax.swing.JDialog {
 
     
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+   
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
