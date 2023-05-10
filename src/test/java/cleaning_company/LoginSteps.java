@@ -14,13 +14,13 @@ public class LoginSteps {
 	
 	@Given("the applicatioen open on Login frame")
 	public void the_applicatioen_open_on_login_frame() {
-	    // Write code here that turns the phrase above into concrete actions
+	    
 	    System.out.println("F1 step 1");
 	}
 
 	@When("user enter {string} and {string}")
 	public void user_enter_and(String string, String string2) {
-	    // Write code here that turns the phrase above into concrete actions
+	    
 		System.out.println("F1 step 2");
 		
 		LoginResult = CleaningCompanyApp.login(string, string2);
@@ -28,7 +28,7 @@ public class LoginSteps {
 
 	@Then("user should login as {string}")
 	public void user_should_login_as(String string) {
-	    // Write code here that turns the phrase above into concrete actions
+	    
 		System.out.println("F1 step 3");
 		String userType = CleaningCompanyApp.getUserType(LoginResult);
 		System.out.println(userType);

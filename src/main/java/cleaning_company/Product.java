@@ -1,16 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package cleaning_company;
 
 import static cleaning_company.CleaningCompanyApp.customers;
 import static cleaning_company.CleaningCompanyApp.workers;
 
-/**
- *
- * @author Deaa
- */
+
 public class Product {
     
     int id;
@@ -24,7 +18,7 @@ public class Product {
     int quantity;
     float price = 0;
     float deliveryCost = 0;
-    float discount = 0;// discount 10% for quantity more than 3
+    float discount = 0;
     float totalAmount = 0;
     boolean isPaid = false;
     

@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package cleaning_company;
 
-/**
- *
- * @author Deaa
- */
+
 public class Worker {
     int id;
     String name;
@@ -18,12 +12,12 @@ public class Worker {
     int numberOfOrder=0;
      
 
-    //public static ArrayList<User> allUsers;
+   
     public Worker() {
 
     }
 
-    //User type is ADMIN
+    
     public Worker(String _email, String _password) {
             email = _email;
             password = _password;

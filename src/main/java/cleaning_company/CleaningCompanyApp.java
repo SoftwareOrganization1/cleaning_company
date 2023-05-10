@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package cleaning_company;
 
 import java.util.ArrayList;
@@ -81,20 +78,7 @@ public class CleaningCompanyApp {
 			prod1.deliveryCost = deliveryCost;
 		}
 
-//        for (int i = 0; i < CleaningCompanyApp.products.size(); i++) {
-//            Product temp = CleaningCompanyApp.products.get(i);
-//            if (temp.id == prod1.id) {
-//                temp.price = cleanCost;
-//                float discount = 0;
-//                if (temp.quantity > 3) {
-//                    discount = totalAmount * 0.1f;
-//                }
-//                temp.discount = discount;
-//                temp.totalAmount = totalAmount - discount;
-//                temp.deliveryCost = deliveryCost;
-//                break;
-//            }
-//        }
+
 		return prod1;
 	}
 
@@ -457,7 +441,7 @@ public class CleaningCompanyApp {
 
 		ArrayList<StatisticItem> statistics = new ArrayList<>();
 
-		// total cash
+		
 		float totalCash = 0;
 		int totalPaid = 0;
 		float totalDebts = 0;
