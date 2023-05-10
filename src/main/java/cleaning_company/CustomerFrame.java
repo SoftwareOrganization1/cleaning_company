@@ -114,7 +114,7 @@ public class CustomerFrame extends javax.swing.JFrame {
         dialog.customer_id = customer.id;
         dialog.setVisible(rootPaneCheckingEnabled);
         System.out.println(" the result" + dialog.result);
-        if (dialog.result == "added") {
+        if (dialog.result.equals("added")) {
             showOrders();
         }
     }//GEN-LAST:event_jButton1ActionPerformed

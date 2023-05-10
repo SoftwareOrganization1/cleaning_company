@@ -92,6 +92,6 @@ public class Product {
     
     @Override
     public String toString() {
-       return String.format("name : %s ,address is %s, status : %s, address: %s",name, address, status);
+       return String.format("name : %s ,address is %s, status : %s",name, address, status);
     }
 }

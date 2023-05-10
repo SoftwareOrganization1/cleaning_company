@@ -134,11 +134,11 @@ public class LoginJFrame extends javax.swing.JFrame {
         } else {
             String UserType = CleaningCompanyApp.getUserType(result);
             //JOptionPane.showMessageDialog(rootPane, "You are loged in as " + UserType);
-            if (UserType == "Customer") {
+            if (UserType.equals("Customer")) {
                 CustomerFrame cFrame = new CustomerFrame();
                 cFrame.customer = (Customer) result;
                 cFrame.setVisible(true);
-            } else if (UserType == "Admin") {
+            } else if (UserType.equals("Admin")) {
                 AdminDashbordFrame aFrame = new AdminDashbordFrame();
                 aFrame.user = (User) result;
                 aFrame.setVisible(true);

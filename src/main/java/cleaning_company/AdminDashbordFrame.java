@@ -339,7 +339,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         AddEditCustomerDialog dialog = new AddEditCustomerDialog(this, rootPaneCheckingEnabled);
         dialog.setVisible(rootPaneCheckingEnabled);
         System.out.println(" the result" + dialog.result);
-        if (dialog.result == "added") {
+        if (dialog.result.equals("added")) {
             showCustomers();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
