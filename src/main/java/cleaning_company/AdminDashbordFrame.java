@@ -571,7 +571,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
     public Product getProductFromTable() {
         int selRow = jTable2.getSelectedRow();
         logger.info(String.valueOf(selRow));
-        boolean found = false;
+       
         Product product = null;
         if (selRow == -1) {
             JOptionPane.showMessageDialog(null,"Please select Product" );
