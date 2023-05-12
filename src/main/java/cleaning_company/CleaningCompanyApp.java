@@ -142,7 +142,7 @@ public class CleaningCompanyApp {
 		}
 
 		if (name.isEmpty()) {
-			result = addMessageToString(result, name );
+			result = addMessageToString(result, CleaningCompanyApp.name);
 		}
 		if (desc.isEmpty()) {
 			result = addMessageToString(result, "description is empty");
@@ -151,7 +151,7 @@ public class CleaningCompanyApp {
 			result = addMessageToString(result, "quantity less than 1");
 		}
 		if (address.isEmpty()) {
-			result = addMessageToString(result, "address is empty");
+			result = addMessageToString(result, CleaningCompanyApp.address);
 		}
 
 		if (!result.isEmpty()) {
@@ -240,20 +240,20 @@ public class CleaningCompanyApp {
 		loadUsers();
 		String result = "";
 		if (name.isEmpty()) {
-			result = addMessageToString(result, "name is empty");
+			result = addMessageToString(result, CleaningCompanyApp.name);
 		}
 		if (email.isEmpty()) {
-			result = addMessageToString(result, "email is empty");
+			result = addMessageToString(result, CleaningCompanyApp.email);
 		}
 
 		if (password.isEmpty()) {
-			result = addMessageToString(result, "password is empty");
+			result = addMessageToString(result, CleaningCompanyApp.pass);
 		}
 		if (phone.isEmpty()) {
-			result = addMessageToString(result, "phone is empty");
+			result = addMessageToString(result, CleaningCompanyApp.phone);
 		}
 		if (address.isEmpty()) {
-			result = addMessageToString(result, "address is empty");
+			result = addMessageToString(result, CleaningCompanyApp.address);
 		}
 
 		if (!result.isEmpty()) {
@@ -308,20 +308,20 @@ public class CleaningCompanyApp {
 		loadUsers();
 		String result = "";
 		if (name.isEmpty()) {
-			result = addMessageToString(result, "name is empty");
+			result = addMessageToString(result, CleaningCompanyApp.name);
 		}
 		if (email.isEmpty()) {
-			result = addMessageToString(result, "email is empty");
+			result = addMessageToString(result, CleaningCompanyApp.email);
 		}
 		
 		if (password.isEmpty()) {
-			result = addMessageToString(result, "password is empty");
+			result = addMessageToString(result, CleaningCompanyApp.pass);
 		}
 		if (phone.isEmpty()) {
-			result = addMessageToString(result, "phone is empty");
+			result = addMessageToString(result, CleaningCompanyApp.phoneEmpty);
 		}
 		if (address.isEmpty()) {
-			result = addMessageToString(result, "address is empty");
+			result = addMessageToString(result, CleaningCompanyApp.address);
 		}
 
 		if (!result.isEmpty()) {
@@ -383,7 +383,7 @@ public class CleaningCompanyApp {
 			result = addMessageToString(result, name );
 		}
 		if (email.isEmpty()) {
-			result = addMessageToString(result, "email is empty");
+			result = addMessageToString(result, CleaningCompanyApp.email);
 		}
 
 		if (password.isEmpty()) {
@@ -452,7 +452,7 @@ public class CleaningCompanyApp {
 	}
 
 	public static String getUserType(Object obj) {
-		String str = "";
+		String str = "null";
 		if (obj instanceof User) {
 			str = "Admin";
 		} else if (obj instanceof Customer) {

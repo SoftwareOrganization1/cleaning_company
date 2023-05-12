@@ -10,4 +10,4 @@ Feature: Login
       | "admin@app.com"       | "123123"      | "Admin"    |
       | "worker1@app.com"     | "123123"      | "Worker"   |
       | "customer1@app.com"     | "123123"      | "Customer" |
-      | "customer1@app.com"     | "123455"      | "" |
+      | "customer1@app.com"     | "123455"      | "null" |

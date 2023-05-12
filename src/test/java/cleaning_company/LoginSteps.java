@@ -24,6 +24,7 @@ public class LoginSteps {
 		System.out.println("F1 step 2");
 		
 		LoginResult = CleaningCompanyApp.login(string, string2);
+		System.out.println(LoginResult + " Saleh");
 	}
 
 	@Then("user should login as {string}")
@@ -31,7 +32,8 @@ public class LoginSteps {
 	    
 		System.out.println("F1 step 3");
 		String userType = CleaningCompanyApp.getUserType(LoginResult);
-		System.out.println(userType);
+		System.out.println(userType + "/" + string);
+
 		if (userType.equals(string)) {
 			assertTrue(true);
 		} else {

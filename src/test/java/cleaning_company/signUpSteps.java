@@ -13,7 +13,8 @@ public class signUpSteps {
 	@Given("the applicatioen open on SignUp frame")
 	public void the_applicatioen_open_on_sign_up_frame() {
 	   
-	   
+	    System.out.println("F1 signUpSteps");
+
 	}
 
 	@When("user enter {string} and {string} and {string} and {string} and {string}")
