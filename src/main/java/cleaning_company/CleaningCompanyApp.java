@@ -2,34 +2,55 @@
 package cleaning_company;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
+import java.util.logging.Logger;
 
 public class CleaningCompanyApp {
 
+	private CleaningCompanyApp() {
+        // Constructor implementation (if needed)
+    }
+	
+	private static final Logger logger = Logger.getLogger(CleaningCompanyApp.class.getName());
 	public static boolean userLoaded = false;
-	public static ArrayList<User> users;
-	public static ArrayList<Customer> customers;
-	public static ArrayList<Worker> workers;
-	public static ArrayList<Product> products;
+	public static ArrayList<User> users= new ArrayList<>();
+	public static ArrayList<Customer> customers = new ArrayList<>();
+	public static ArrayList<Worker> workers = new ArrayList<>();
+	public static ArrayList<Product> products = new ArrayList<>();
+	
+    static String NUM="123123";
+    static String PAL="Palestine";
+    static String Phone="0569223344";
+    static String NAME="name is empty";
+    static String Address="address is empty";
+    static String Email="email is empty";
+    static String Pass="password is empty";
+    static String PhoneEmpty="phone is empty";
+    static String Message="this email used by another user";
+    public static final String UPDATE_ORDER_RESULT = " ";
+    
+	public static boolean isUserLoaded() {
+	    return userLoaded;
+	}
+
+	public static void setUserLoaded(boolean loaded) {
+	    userLoaded = loaded;
+	}
 
 	public static void loadUsers() {
 		if (userLoaded) {
 			return;
 		}
-		System.out.println(String.format("Load users"));
-		users = new ArrayList<>();
-		customers = new ArrayList<>();
-		workers = new ArrayList<>();
-		products = new ArrayList<>();
+		
+		logger.info("Load users");
 		userLoaded = true;
 
-		User admin = new User(1, "Admin", "admin@app.com", "123123");
+		User admin = new User(1, "Admin", "admin@app.com", NUM);
 		users.add(admin);
 
-		newCustomer("Customer 1", "customer1@app.com", "123123", "0569223344", "Palestine");
-		newCustomer("Customer new ", "customer2@app.com", "123123", "0569223344", "Palestine");
-		newWorker("Worker 1", "worker1@app.com", "123123", "0569223344", "Palestine");
-		newWorker("Worker 2", "worker2@app.com", "123123", "0569223344", "Palestine");
+		newCustomer("Customer 1", "customer1@app.com", NUM, Phone, PAL);
+		newCustomer("Customer new ", "customer2@app.com", NUM, Phone, PAL);
+		newWorker("Worker 1", "worker1@app.com", NUM, Phone, PAL);
+		newWorker("Worker 2", "worker2@app.com", NUM, Phone, PAL);
 
 	}
 
@@ -44,22 +65,22 @@ public class CleaningCompanyApp {
 		return result;
 	}
 
-	public static String updateOrder(int order_id, String name, String desc, int quantity, String address) {
+	public static String updateOrder(int orderId, String name, String desc, int quantity, String address) {
 
-		return "";
+		return UPDATE_ORDER_RESULT;
 	}
 
-	public static Product paidOrder(int order_id) {
-		Product prod1 = getProduct(order_id);
+	public static Product paidOrder(int orderId) {
+		Product prod1 = getProduct(orderId);
 		if (prod1 != null && prod1.totalAmount > 0) {
 			prod1.isPaid = true;
 		}
 		return prod1;
 	}
 
-	public static Product createInvoice(int order_id, float cleanCost, float deliveryCost) {
+	public static Product createInvoice(int orderId, float cleanCost, float deliveryCost) {
 
-		Product prod1 = getProduct(order_id);
+		Product prod1 = getProduct(orderId);
 
 		float totalAmount = deliveryCost + cleanCost;
 
@@ -104,13 +125,13 @@ public class CleaningCompanyApp {
 		return worker;
 	}
 
-	public static String newOrder(int customer_id, String name, String desc, int quantity, String address) {
+	public static String newOrder(int customerId, String name, String desc, int quantity, String address) {
 		loadUsers();
 		String result = "";
 		boolean found = false;
 		for (int i = 0; i < customers.size(); i++) {
 			Customer c = customers.get(i);
-			if (c.id == customer_id) {
+			if (c.id == customerId) {
 				found = true;
 				break;
 			}
@@ -121,7 +142,7 @@ public class CleaningCompanyApp {
 		}
 
 		if (name.isEmpty()) {
-			result = addMessageToString(result, "name is empty");
+			result = addMessageToString(result, NAME);
 		}
 		if (desc.isEmpty()) {
 			result = addMessageToString(result, "description is empty");
@@ -130,23 +151,23 @@ public class CleaningCompanyApp {
 			result = addMessageToString(result, "quantity less than 1");
 		}
 		if (address.isEmpty()) {
-			result = addMessageToString(result, "address is empty");
+			result = addMessageToString(result, Address);
 		}
 
 		if (!result.isEmpty()) {
 			return result;
 		}
-		int last_id = 0;
+		int lastId = 0;
 		for (int i = 0; i < products.size(); i++) {
 			Product p = products.get(i);
-			if (p.id > last_id) {
-				last_id = p.id;
+			if (p.id > lastId) {
+				lastId = p.id;
 			}
 		}
 
 		Product order = new Product();
-		order.id = last_id + 1;
-		order.customer_id = customer_id;
+		order.id = lastId + 1;
+		order.customer_id = customerId;
 		order.worker_id = 0;
 		order.name = name;
 		order.description = desc;
@@ -164,23 +185,23 @@ public class CleaningCompanyApp {
 		return "";
 	}
 
-	public static Product getProduct(int product_id) {
+	public static Product getProduct(int productId) {
 
 		Product prod = null;
 		for (int i = 0; i < CleaningCompanyApp.products.size(); i++) {
 			Product p1 = CleaningCompanyApp.products.get(i);
-			if (p1.id == product_id) {
+			if (p1.id == productId) {
 				prod = p1;
-				System.out.println(" s  : " + product_id);
+				logger.info(" s  : " + productId);
 				break;
 			}
 		}
 		return prod;
 	}
 
-	public static Product changeOrderStatus(int order_id, String status) {
+	public static Product changeOrderStatus(int orderId, String status) {
 
-		Product prod1 = getProduct(order_id);
+		Product prod1 = getProduct(orderId);
 		if (prod1 != null) {
 			prod1.status = status;
 		}
@@ -201,12 +222,12 @@ public class CleaningCompanyApp {
 		return orders;
 	}
 
-	public static Worker getWorker(int worker_id) {
+	public static Worker getWorker(int WorkerId) {
 
 		Worker wrorker = null;
 		for (int i = 0; i < CleaningCompanyApp.workers.size(); i++) {
 			Worker w1 = CleaningCompanyApp.workers.get(i);
-			if (w1.id == worker_id) {
+			if (w1.id == WorkerId) {
 				wrorker = w1;
 				break;
 			}
@@ -214,165 +235,194 @@ public class CleaningCompanyApp {
 		return wrorker;
 	}
 
+	
 	public static String newWorker(String name, String email, String password, String phone, String address) {
-		loadUsers();
-		String result = "";
-		if (name.isEmpty()) {
-			result = addMessageToString(result, "name is empty");
-		}
-		if (email.isEmpty()) {
-			result = addMessageToString(result, "email is empty");
-		}
+	    loadUsers();
+	    String result = validateFields(name, email, password, phone, address);
+	    if (!result.isEmpty()) {
+	        return result;
+	    }
+	    
+	    if (isEmailUsed(email)) {
+	        return "This email is already used by another user";
+	    }
+	    
+	    int lastId = findLastWorkerId();
+	    Worker worker = new Worker();
+	    worker.id = lastId + 1;
+	    worker.name = name;
+	    worker.email = email;
+	    worker.password = password;
+	    worker.phone = phone;
+	    worker.address = address;
+	    workers.add(worker);
 
-		if (password.isEmpty()) {
-			result = addMessageToString(result, "password is empty");
-		}
-		if (phone.isEmpty()) {
-			result = addMessageToString(result, "phone is empty");
-		}
-		if (address.isEmpty()) {
-			result = addMessageToString(result, "address is empty");
-		}
-
-		if (!result.isEmpty()) {
-			return result;
-		}
-		int last_id = 0;
-		for (int i = 0; i < workers.size(); i++) {
-			Worker w = workers.get(i);
-			if (w.email.equals(email)) {
-				result = "this email used by another user";
-				break;
-			}
-			if (w.id > last_id) {
-				last_id = w.id;
-			}
-		}
-
-		for (int i = 0; i < users.size(); i++) {
-			User u = users.get(i);
-			if (u.email.equals(email)) {
-				result = "this email used by another user";
-				break;
-			}
-		}
-
-		for (int i = 0; i < customers.size(); i++) {
-			Customer c = customers.get(i);
-			if (c.email.equals(email)) {
-				result = "this email used by another user";
-				break;
-			}
-		}
-
-		if (!result.isEmpty()) {
-			return result;
-		}
-
-		Worker worker = new Worker();
-		worker.id = last_id + 1;
-		worker.name = name;
-		worker.email = email;
-		worker.password = password;
-		worker.phone = phone;
-		worker.address = address;
-		workers.add(worker);
-
-		return "";
+	    return "";
 	}
+
+	private static String validateFields(String name, String email, String password, String phone, String address) {
+	    StringBuilder result = new StringBuilder();
+	    
+	    if (name.isEmpty()) {
+	        result.append("name is empty; ");
+	    }
+	    
+	    if (email.isEmpty()) {
+	        result.append("email is empty; ");
+	    }
+	    
+	    if (password.isEmpty()) {
+	        result.append("password is empty; ");
+	    }
+	    
+	    if (phone.isEmpty()) {
+	        result.append("phone is empty; ");
+	    }
+	    
+	    if (address.isEmpty()) {
+	        result.append("address is empty; ");
+	    }
+	    
+	    return result.toString().trim();
+	}
+
+	private static boolean isEmailUsed(String email) {
+	    for (Worker w : workers) {
+	        if (w.email.equals(email)) {
+	            return true;
+	        }
+	    }
+	    for (User u : users) {
+	        if (u.email.equals(email)) {
+	            return true;
+	        }
+	    }
+	    for (Customer c : customers) {
+	        if (c.email.equals(email)) {
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+
+	private static int findLastWorkerId() {
+	    int lastId = 0;
+	    for (Worker w : workers) {
+	        if (w.id > lastId) {
+	            lastId = w.id;
+	        }
+	    }
+	    return lastId;
+	}
+
+
+
 
 	public static String newCustomer(String name, String email, String password, String phone, String address) {
-		loadUsers();
-		String result = "";
-		if (name.isEmpty()) {
-			result = addMessageToString(result, "name is empty");
-		}
-		if (email.isEmpty()) {
-			result = addMessageToString(result, "email is empty");
-		}
+	    loadUsers();
+	    String result = validateFields(name, email, password, phone, address);
+	    if (!result.isEmpty()) {
+	        return result;
+	    }
+	    
+	    if (isEmailUsed(email)) {
+	        return "This email is already used by another user";
+	    }
+	    
+	    int lastId = findLastCustomerId();
+	    Customer customer = new Customer();
+	    customer.id = lastId + 1;
+	    customer.name = name;
+	    customer.email = email;
+	    customer.password = password;
+	    customer.phone = phone;
+	    customer.address = address;
+	    customers.add(customer);
 
-		if (password.isEmpty()) {
-			result = addMessageToString(result, "password is empty");
-		}
-		if (phone.isEmpty()) {
-			result = addMessageToString(result, "phone is empty");
-		}
-		if (address.isEmpty()) {
-			result = addMessageToString(result, "address is empty");
-		}
-
-		if (!result.isEmpty()) {
-			return result;
-		}
-		int last_id = 0;
-		for (int i = 0; i < customers.size(); i++) {
-			Customer c = customers.get(i);
-			if (c.email.equals(email)) {
-				result = "this email used by another user";
-				break;
-			}
-			if (c.id > last_id) {
-				last_id = c.id;
-			}
-		}
-
-		for (int i = 0; i < users.size(); i++) {
-			User u = users.get(i);
-			if (u.email.equals(email)) {
-				result = "this email used by another user";
-				break;
-			}
-		}
-
-		for (int i = 0; i < workers.size(); i++) {
-			Worker w = workers.get(i);
-			if (w.email.equals(email)) {
-				result = "this email used by another user";
-				break;
-			}
-		}
-
-		if (!result.isEmpty()) {
-			return result;
-		}
-
-		Customer customer = new Customer();
-		customer.id = last_id + 1;
-		customer.name = name;
-		customer.email = email;
-		customer.password = password;
-		customer.phone = phone;
-		customer.address = address;
-		customers.add(customer);
-
-		return "";
+	    return "";
 	}
+
+	private static String validateFields1(String name, String email, String password, String phone, String address) {
+	    StringBuilder result = new StringBuilder();
+	    
+	    if (name.isEmpty()) {
+	        result.append("name is empty; ");
+	    }
+	    
+	    if (email.isEmpty()) {
+	        result.append("email is empty; ");
+	    }
+	    
+	    if (password.isEmpty()) {
+	        result.append("password is empty; ");
+	    }
+	    
+	    if (phone.isEmpty()) {
+	        result.append("phone is empty; ");
+	    }
+	    
+	    if (address.isEmpty()) {
+	        result.append("address is empty; ");
+	    }
+	    
+	    return result.toString().trim();
+	}
+
+	private static boolean isEmailUsed1(String email) {
+	    for (User u : users) {
+	        if (u.email.equals(email)) {
+	            return true;
+	        }
+	    }
+	    for (Worker w : workers) {
+	        if (w.email.equals(email)) {
+	            return true;
+	        }
+	    }
+	    for (Customer c : customers) {
+	        if (c.email.equals(email)) {
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+
+	private static int findLastCustomerId() {
+	    int lastId = 0;
+	    for (Customer c : customers) {
+	        if (c.id > lastId) {
+	            lastId = c.id;
+	        }
+	    }
+	    return lastId;
+	}
+
 
 	public static String updateCustomer(int id, String name, String email, String password, String phone,
 			String address) {
 		loadUsers();
 		String result = "";
 		if (name.isEmpty()) {
-			result = addMessageToString(result, "name is empty");
+			result = addMessageToString(result, NAME);
 		}
 		if (email.isEmpty()) {
-			result = addMessageToString(result, "email is empty");
+			result = addMessageToString(result, Email);
 		}
 
 		if (password.isEmpty()) {
-			result = addMessageToString(result, "password is empty");
+			result = addMessageToString(result, Pass);
 		}
 		if (phone.isEmpty()) {
-			result = addMessageToString(result, "phone is empty");
+			result = addMessageToString(result, PhoneEmpty);
 		}
 		if (address.isEmpty()) {
-			result = addMessageToString(result, "address is empty");
+			result = addMessageToString(result, Address);
 		}
 
 		if (!result.isEmpty()) {
 			return result;
 		}
-		int last_id = 0;
+		
 		int index = -1;
 		result = "Customer not found";
 		for (int i = 0; i < customers.size(); i++) {
@@ -399,7 +449,7 @@ public class CleaningCompanyApp {
 
 	public static Object login(String email, String password) {
 		loadUsers();
-		System.out.println(String.format("email is %s, password is : %s", email, password));
+		logger.info(String.format("email is %s, password is: %s", email, password));
 		for (int i = 0; i < users.size(); i++) {
 			User u = users.get(i);
 			if (u.email.equals(email) && u.password.equals(password)) {

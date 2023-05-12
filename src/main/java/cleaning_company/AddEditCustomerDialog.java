@@ -9,7 +9,7 @@ public class AddEditCustomerDialog extends javax.swing.JDialog {
     boolean isAdd = true;
     boolean isRead = false;
     transient Customer customer;
-    String UI="Segoe UI";
+    String segoeUI="Segoe UI";
     
    
     public AddEditCustomerDialog(java.awt.Frame parent, boolean modal) {
@@ -23,12 +23,12 @@ public class AddEditCustomerDialog extends javax.swing.JDialog {
     
     private void initComponents() {
     	
-    	javax.swing.JButton jButton2 = new javax.swing.JButton();
-    	javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
-    	javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
-    	javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
-    	javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
-    	javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
+    	javax.swing.JButton jButton2 ;
+    	javax.swing.JLabel jLabel1 ;
+    	javax.swing.JLabel jLabel2 ;
+    	javax.swing.JLabel jLabel3 ;
+    	javax.swing.JLabel jLabel4 ;
+    	javax.swing.JLabel jLabel5 ;
     	
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -53,30 +53,30 @@ public class AddEditCustomerDialog extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font(UI, 0, 18)); 
+        jLabel1.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel1.setText("Email");
 
-        jLabel2.setFont(new java.awt.Font(UI, 0, 18)); 
+        jLabel2.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel2.setText("Name");
 
-        jLabel3.setFont(new java.awt.Font(UI, 0, 18)); 
+        jLabel3.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel3.setText("Password");
 
-        jLabel4.setFont(new java.awt.Font(UI, 0, 18)); 
+        jLabel4.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel4.setText("Address");
 
-        jLabel5.setFont(new java.awt.Font(UI, 0, 18)); 
+        jLabel5.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel5.setText("Phone");
 
-        jTextField1.setFont(new java.awt.Font(UI, 0, 18)); 
+        jTextField1.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
-        jTextField2.setFont(new java.awt.Font(UI, 0, 18)); 
+        jTextField2.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
-        jTextField3.setFont(new java.awt.Font(UI, 0, 18)); 
+        jTextField3.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
-        jTextField4.setFont(new java.awt.Font(UI, 0, 18)); 
+        jTextField4.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
-        jPasswordField1.setFont(new java.awt.Font(UI, 0, 18)); 
+        jPasswordField1.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
         jButton1.setText("Add Customer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +88,7 @@ public class AddEditCustomerDialog extends javax.swing.JDialog {
         jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2ActionPerformed();
             }
         });
 
@@ -192,7 +192,7 @@ public class AddEditCustomerDialog extends javax.swing.JDialog {
         }
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton2ActionPerformed() {
     	
         this.dispose();
     }
@@ -212,7 +212,7 @@ public class AddEditCustomerDialog extends javax.swing.JDialog {
         }
     }
     
-    public static void main(String args) {
+    public static void main() {
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

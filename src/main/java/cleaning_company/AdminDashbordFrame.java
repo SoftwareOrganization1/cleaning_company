@@ -7,6 +7,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.SwingConstants;
 import java.util.logging.Logger;
 
+
 public class AdminDashbordFrame extends javax.swing.JFrame {
 
 	transient User user;
@@ -23,26 +24,26 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
     
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+    	javax.swing.JTabbedPane jTabbedPane1 = new javax.swing.JTabbedPane();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JScrollPane jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        javax.swing.JButton jButton5 = new javax.swing.JButton();
+        javax.swing.JButton jButton7 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        javax.swing.JButton jButton1 = new javax.swing.JButton();
+        javax.swing.JButton jButton2 = new javax.swing.JButton();
+        javax.swing.JButton jButton3 = new javax.swing.JButton();
+         javax.swing.JPanel jPanel3 = new javax.swing.JPanel();
+         javax.swing.JScrollPane jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        javax.swing.JPanel jPanel4 = new javax.swing.JPanel();
+        javax.swing.JScrollPane jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
+        javax.swing.JButton jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,7 +100,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         });
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jComboBox1ActionPerformed();
             }
         });
 
@@ -184,7 +185,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         jButton3.setText("delete");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton3ActionPerformed();
             }
         });
 
@@ -311,7 +312,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         jButton4.setText("Logout");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButton4ActionPerformed();
             }
         });
 
@@ -383,13 +384,13 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
             AddEditCustomerDialog dialog = new AddEditCustomerDialog(this, rootPaneCheckingEnabled);
             dialog.customer = customer;
             dialog.setVisible(true);
-            System.out.println(" the result" + dialog.result);
+            logger.info("The result: " + dialog.result);
             if (dialog.result.equals("updated")) {
                 showCustomers();
             }
         }
     }
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton3ActionPerformed() {
         
         int selRow = jTable1.getSelectedRow();
         boolean found = false;
@@ -422,7 +423,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         showWorkers();
     }
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton4ActionPerformed() {
         LoginJFrame f = new LoginJFrame();
         f.setVisible(true);
         this.dispose();
@@ -482,11 +483,12 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         
     }
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jComboBox1ActionPerformed() {
+    	throw new UnsupportedOperationException("Method not supported or incomplete");
     }
 
    
-    public static void main(String args) {
+    public static void main() {
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -495,16 +497,12 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminDashbordFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminDashbordFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminDashbordFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } 
+
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AdminDashbordFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
+
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -521,7 +519,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
             tbmode1.removeRow(0);
         }
         for (int i = 0; i < CleaningCompanyApp.customers.size(); i++) {
-            String tbData[] = CleaningCompanyApp.customers.get(i).toArrayString();
+        	String[] tbData = CleaningCompanyApp.customers.get(i).toArrayString();
             tbmode1.addRow(tbData);
         }
     }
@@ -536,7 +534,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         }
         for (int i = 0; i < statistics.size(); i++) {
             StatisticItem item = statistics.get(i);
-            String tbData[] = {item.name, item.value};
+            String[] tbData = {item.name, item.value};
             tbmode1.addRow(tbData);
         }
     }
@@ -551,7 +549,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
             tbmode1.removeRow(0);
         }
         for (int i = 0; i < CleaningCompanyApp.workers.size(); i++) {
-            String tbData[] = CleaningCompanyApp.workers.get(i).toArrayString();
+            String[] tbData = CleaningCompanyApp.workers.get(i).toArrayString();
             tbmode1.addRow(tbData);
         }
     }
@@ -565,14 +563,14 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         }
         ArrayList<Product> orders =  CleaningCompanyApp.getOrderByStatus (status);
         for (int i = 0; i < orders.size(); i++) {
-            String tbData[] = orders.get(i).toArrayString(true);
+            String[] tbData = orders.get(i).toArrayString(true);
             tbmode1.addRow(tbData);
         }
     }
     
     public Product getProductFromTable() {
         int selRow = jTable2.getSelectedRow();
-        System.out.println(selRow);
+        logger.info(String.valueOf(selRow));
         boolean found = false;
         Product product = null;
         if (selRow == -1) {
@@ -580,9 +578,9 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
             return null;
         }
         if (selRow > -1) {
-            String product_id = jTable2.getValueAt(jTable2.getSelectedRow(), 0).toString();
-            product = CleaningCompanyApp.getProduct(Integer.parseInt(product_id));
-            System.out.println(product.name);
+            String productId = jTable2.getValueAt(jTable2.getSelectedRow(), 0).toString();
+            product = CleaningCompanyApp.getProduct(Integer.parseInt(productId));
+            logger.info(product.name);
         }
         
         return product;
@@ -591,22 +589,8 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
     
 
     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
+  
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;

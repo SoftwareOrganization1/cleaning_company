@@ -10,8 +10,8 @@ public class AddEditOrderDialog extends javax.swing.JDialog {
      String result = "";
      boolean isAdd = true;
      boolean isRead = false;
-     Product product;
-     String UI="Segoe UI";
+     transient Product product;
+     String segoeUI="Segoe UI";
    
     public AddEditOrderDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -23,11 +23,11 @@ public class AddEditOrderDialog extends javax.swing.JDialog {
    
     private void initComponents() {
     	
-    	javax.swing.JButton jButton2 = new javax.swing.JButton();
-    	javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
-    	javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
-    	javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
-    	javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
+    	javax.swing.JButton jButton2;
+    	javax.swing.JLabel jLabel1;
+    	javax.swing.JLabel jLabel2 ;
+    	javax.swing.JLabel jLabel4;
+    	javax.swing.JLabel jLabel5 ;
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -50,24 +50,24 @@ public class AddEditOrderDialog extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font(UI, 0, 18)); 
+        jLabel1.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel1.setText("description");
 
-        jLabel2.setFont(new java.awt.Font(UI, 0, 18)); 
+        jLabel2.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel2.setText("Name");
 
-        jLabel4.setFont(new java.awt.Font(UI, 0, 18)); 
+        jLabel4.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel4.setText("Address");
 
-        jLabel5.setFont(new java.awt.Font(UI, 0, 18)); 
+        jLabel5.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
-        jTextField1.setFont(new java.awt.Font(UI, 0, 18)); 
+        jTextField1.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
-        jTextField2.setFont(new java.awt.Font(UI, 0, 18)); 
+        jTextField2.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
-        jTextField3.setFont(new java.awt.Font(UI, 0, 18)); 
+        jTextField3.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
-        jTextField4.setFont(new java.awt.Font(UI, 0, 18)); 
+        jTextField4.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
         jButton1.setText("Add Order");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +204,7 @@ public class AddEditOrderDialog extends javax.swing.JDialog {
         }
     }
     
-    public static void main(String args) {
+    public static void main() {
        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
