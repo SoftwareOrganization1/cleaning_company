@@ -12,7 +12,6 @@ public class InvoiceSteps {
 
 	@Given("customer create order and the admin open create invoice frame for created order")
 	public void customer_create_order_and_the_admin_open_create_invoice_frame_for_created_order() {
-	    System.out.println("F1 InvoiceSteps");
 
 		result = CleaningCompanyApp.newOrder(1, "order1", "desc1", 1, "address1");
 	}

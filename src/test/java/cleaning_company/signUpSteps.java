@@ -13,7 +13,6 @@ public class signUpSteps {
 	@Given("the applicatioen open on SignUp frame")
 	public void the_applicatioen_open_on_sign_up_frame() {
 	   
-	    System.out.println("F1 signUpSteps");
 
 	}
 
@@ -25,7 +24,6 @@ public class signUpSteps {
 
 	@Then("SignUp result will be {string} empty result mean customer created successfully")
 	public void sign_up_result_will_be_empty_result_mean_customer_created_successfully(String string) {
-	    System.out.println("F3 signUpSteps " + string + "/" + result);
 
 		if (string.isEmpty() || result.contains(string)) {
 			assertTrue(true);

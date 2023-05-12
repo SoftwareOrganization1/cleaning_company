@@ -55,7 +55,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         	
         	@Override
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                jPanel1ComponentShown();
+        		showOrders();
             }
         });
 
@@ -95,7 +95,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "all", "waiting", "in treatment", "complete", " " }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox1ItemStateChanged();
+            	showOrders();
             }
         });
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -429,12 +429,7 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         this.dispose();
     }
 
-    private void jPanel1ComponentShown() {
-      
-        
-        String status = jComboBox1.getSelectedItem().toString();
-        showOrders(status);
-    }
+   
     private void jButton5ActionPerformed() {
         
         Product p = getProductFromTable();
@@ -471,8 +466,8 @@ public class AdminDashbordFrame extends javax.swing.JFrame {
         }
         
     }
-
-    private void jComboBox1ItemStateChanged() {
+    
+    private void showOrders() {   
         String status = jComboBox1.getSelectedItem().toString();
         showOrders(status);
     }

@@ -15,24 +15,19 @@ public class LoginSteps {
 	@Given("the applicatioen open on Login frame")
 	public void the_applicatioen_open_on_login_frame() {
 	    
-	    System.out.println("F1 step 1");
 	}
 
 	@When("user enter {string} and {string}")
 	public void user_enter_and(String string, String string2) {
 	    
-		System.out.println("F1 step 2");
 		
 		LoginResult = CleaningCompanyApp.login(string, string2);
-		System.out.println(LoginResult + " Saleh");
 	}
 
 	@Then("user should login as {string}")
 	public void user_should_login_as(String string) {
 	    
-		System.out.println("F1 step 3");
 		String userType = CleaningCompanyApp.getUserType(LoginResult);
-		System.out.println(userType + "/" + string);
 
 		if (userType.equals(string)) {
 			assertTrue(true);
