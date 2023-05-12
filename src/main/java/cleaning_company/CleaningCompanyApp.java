@@ -237,166 +237,143 @@ public class CleaningCompanyApp {
 
 	
 	public static String newWorker(String name, String email, String password, String phone, String address) {
-	    loadUsers();
-	    String result = validateFields(name, email, password, phone, address);
-	    if (!result.isEmpty()) {
-	        return result;
-	    }
-	    
-	    if (isEmailUsed(email)) {
-	        return "This email is already used by another user";
-	    }
-	    
-	    int lastId = findLastWorkerId();
-	    Worker worker = new Worker();
-	    worker.id = lastId + 1;
-	    worker.name = name;
-	    worker.email = email;
-	    worker.password = password;
-	    worker.phone = phone;
-	    worker.address = address;
-	    workers.add(worker);
+		loadUsers();
+		String result = "";
+		if (name.isEmpty()) {
+			result = addMessageToString(result, "name is empty");
+		}
+		if (email.isEmpty()) {
+			result = addMessageToString(result, "email is empty");
+		}
 
-	    return "";
+		if (password.isEmpty()) {
+			result = addMessageToString(result, "password is empty");
+		}
+		if (phone.isEmpty()) {
+			result = addMessageToString(result, "phone is empty");
+		}
+		if (address.isEmpty()) {
+			result = addMessageToString(result, "address is empty");
+		}
+
+		if (!result.isEmpty()) {
+			return result;
+		}
+		int last_id = 0;
+		for (int i = 0; i < workers.size(); i++) {
+			Worker w = workers.get(i);
+			if (w.email.equals(email)) {
+				result = "this email used by another user";
+				break;
+			}
+			if (w.id > last_id) {
+				last_id = w.id;
+			}
+		}
+
+		for (int i = 0; i < users.size(); i++) {
+			User u = users.get(i);
+			if (u.email.equals(email)) {
+				result = "this email used by another user";
+				break;
+			}
+		}
+
+		for (int i = 0; i < customers.size(); i++) {
+			Customer c = customers.get(i);
+			if (c.email.equals(email)) {
+				result = "this email used by another user";
+				break;
+			}
+		}
+
+		if (!result.isEmpty()) {
+			return result;
+		}
+		
+		Worker worker = new Worker();
+		worker.id = last_id + 1;
+		worker.name = name;
+		worker.email = email;
+		worker.password = password;
+		worker.phone = phone;
+		worker.address = address;
+		workers.add(worker);
+		
+		return "";
+		
 	}
-
-	private static String validateFields(String name, String email, String password, String phone, String address) {
-	    StringBuilder result = new StringBuilder();
-	    
-	    if (name.isEmpty()) {
-	        result.append("name is empty; ");
-	    }
-	    
-	    if (email.isEmpty()) {
-	        result.append("email is empty; ");
-	    }
-	    
-	    if (password.isEmpty()) {
-	        result.append("password is empty; ");
-	    }
-	    
-	    if (phone.isEmpty()) {
-	        result.append("phone is empty; ");
-	    }
-	    
-	    if (address.isEmpty()) {
-	        result.append("address is empty; ");
-	    }
-	    
-	    return result.toString().trim();
-	}
-
-	private static boolean isEmailUsed(String email) {
-	    for (Worker w : workers) {
-	        if (w.email.equals(email)) {
-	            return true;
-	        }
-	    }
-	    for (User u : users) {
-	        if (u.email.equals(email)) {
-	            return true;
-	        }
-	    }
-	    for (Customer c : customers) {
-	        if (c.email.equals(email)) {
-	            return true;
-	        }
-	    }
-	    return false;
-	}
-
-	private static int findLastWorkerId() {
-	    int lastId = 0;
-	    for (Worker w : workers) {
-	        if (w.id > lastId) {
-	            lastId = w.id;
-	        }
-	    }
-	    return lastId;
-	}
-
-
-
-
+	
 	public static String newCustomer(String name, String email, String password, String phone, String address) {
-	    loadUsers();
-	    String result = validateFields(name, email, password, phone, address);
-	    if (!result.isEmpty()) {
-	        return result;
-	    }
-	    
-	    if (isEmailUsed(email)) {
-	        return "This email is already used by another user";
-	    }
-	    
-	    int lastId = findLastCustomerId();
-	    Customer customer = new Customer();
-	    customer.id = lastId + 1;
-	    customer.name = name;
-	    customer.email = email;
-	    customer.password = password;
-	    customer.phone = phone;
-	    customer.address = address;
-	    customers.add(customer);
+		loadUsers();
+		String result = "";
+		if (name.isEmpty()) {
+			result = addMessageToString(result, "name is empty");
+		}
+		if (email.isEmpty()) {
+			result = addMessageToString(result, "email is empty");
+		}
+		
+		if (password.isEmpty()) {
+			result = addMessageToString(result, "password is empty");
+		}
+		if (phone.isEmpty()) {
+			result = addMessageToString(result, "phone is empty");
+		}
+		if (address.isEmpty()) {
+			result = addMessageToString(result, "address is empty");
+		}
 
-	    return "";
+		if (!result.isEmpty()) {
+			return result;
+		}
+		int last_id = 0;
+		for (int i = 0; i < customers.size(); i++) {
+			Customer c = customers.get(i);
+			if (c.email.equals(email)) {
+				result = "this email used by another user";
+				break;
+			}
+			if (c.id > last_id) {
+				last_id = c.id;
+			}
+		}
+
+		for (int i = 0; i < users.size(); i++) {
+			User u = users.get(i);
+			if (u.email.equals(email)) {
+				result = "this email used by another user";
+				break;
+			}
+		}
+
+		for (int i = 0; i < workers.size(); i++) {
+			Worker w = workers.get(i);
+			if (w.email.equals(email)) {
+				result = "this email used by another user";
+				break;
+			}
+		}
+		
+		if (!result.isEmpty()) {
+			return result;
+		}
+		
+		Customer customer = new Customer();
+		customer.id = last_id + 1;
+		customer.name = name;
+		customer.email = email;
+		customer.password = password;
+		customer.phone = phone;
+		customer.address = address;
+		customers.add(customer);
+		
+		return "";
 	}
-
-	private static String validateFields1(String name, String email, String password, String phone, String address) {
-	    StringBuilder result = new StringBuilder();
-	    
-	    if (name.isEmpty()) {
-	        result.append("name is empty; ");
-	    }
-	    
-	    if (email.isEmpty()) {
-	        result.append("email is empty; ");
-	    }
-	    
-	    if (password.isEmpty()) {
-	        result.append("password is empty; ");
-	    }
-	    
-	    if (phone.isEmpty()) {
-	        result.append("phone is empty; ");
-	    }
-	    
-	    if (address.isEmpty()) {
-	        result.append("address is empty; ");
-	    }
-	    
-	    return result.toString().trim();
-	}
-
-	private static boolean isEmailUsed1(String email) {
-	    for (User u : users) {
-	        if (u.email.equals(email)) {
-	            return true;
-	        }
-	    }
-	    for (Worker w : workers) {
-	        if (w.email.equals(email)) {
-	            return true;
-	        }
-	    }
-	    for (Customer c : customers) {
-	        if (c.email.equals(email)) {
-	            return true;
-	        }
-	    }
-	    return false;
-	}
-
-	private static int findLastCustomerId() {
-	    int lastId = 0;
-	    for (Customer c : customers) {
-	        if (c.id > lastId) {
-	            lastId = c.id;
-	        }
-	    }
-	    return lastId;
-	}
-
+	
+	
+	
+	
 
 	public static String updateCustomer(int id, String name, String email, String password, String phone,
 			String address) {
