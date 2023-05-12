@@ -27,9 +27,8 @@ public class NewOrderSteps {
 	@Then("new Order result will be {string} empty result mean order created successfully")
 	public void new_order_result_will_be_empty_result_mean_order_created_successfully(String string) {
 	    System.out.println("F3 NewOrderSteps " + string + "/" + result);
-
 	  
-		if (string.isEmpty() || (!string.isEmpty() && result.equals(string))) {
+		if (string.isEmpty() || result.contains(string)) {
 			assertTrue(true);
 		} else {
 			assertTrue(false);

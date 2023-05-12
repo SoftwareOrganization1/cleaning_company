@@ -238,23 +238,7 @@ public class CleaningCompanyApp {
 	
 	public static String newWorker(String name, String email, String password, String phone, String address) {
 		loadUsers();
-		String result = "";
-		if (name.isEmpty()) {
-			result = addMessageToString(result, CleaningCompanyApp.name);
-		}
-		if (email.isEmpty()) {
-			result = addMessageToString(result, CleaningCompanyApp.email);
-		}
-
-		if (password.isEmpty()) {
-			result = addMessageToString(result, CleaningCompanyApp.pass);
-		}
-		if (phone.isEmpty()) {
-			result = addMessageToString(result, CleaningCompanyApp.phone);
-		}
-		if (address.isEmpty()) {
-			result = addMessageToString(result, CleaningCompanyApp.address);
-		}
+		String result = validateFields(name, email, password, phone, address);
 
 		if (!result.isEmpty()) {
 			return result;
@@ -306,23 +290,7 @@ public class CleaningCompanyApp {
 	
 	public static String newCustomer(String name, String email, String password, String phone, String address) {
 		loadUsers();
-		String result = "";
-		if (name.isEmpty()) {
-			result = addMessageToString(result, CleaningCompanyApp.name);
-		}
-		if (email.isEmpty()) {
-			result = addMessageToString(result, CleaningCompanyApp.email);
-		}
-		
-		if (password.isEmpty()) {
-			result = addMessageToString(result, CleaningCompanyApp.pass);
-		}
-		if (phone.isEmpty()) {
-			result = addMessageToString(result, CleaningCompanyApp.phoneEmpty);
-		}
-		if (address.isEmpty()) {
-			result = addMessageToString(result, CleaningCompanyApp.address);
-		}
+		String result = validateFields(name, email, password, phone, address);
 
 		if (!result.isEmpty()) {
 			return result;
@@ -372,15 +340,10 @@ public class CleaningCompanyApp {
 	}
 	
 	
-	
-	
-
-	public static String updateCustomer(int id, String name, String email, String password, String phone,
-			String address) {
-		loadUsers();
+	private static String validateFields(String name, String email, String password, String phone, String address) {
 		String result = "";
 		if (name.isEmpty()) {
-			result = addMessageToString(result, name );
+			result = addMessageToString(result, CleaningCompanyApp.name );
 		}
 		if (email.isEmpty()) {
 			result = addMessageToString(result, CleaningCompanyApp.email);
@@ -393,9 +356,17 @@ public class CleaningCompanyApp {
 			result = addMessageToString(result, phoneEmpty);
 		}
 		if (address.isEmpty()) {
-			result = addMessageToString(result, address);
+			result = addMessageToString(result, CleaningCompanyApp.address);
 		}
 
+		return result;
+	}
+	
+
+	public static String updateCustomer(int id, String name, String email, String password, String phone,
+			String address) {
+		loadUsers();
+		String result = validateFields(name, email, password, phone, address);
 		if (!result.isEmpty()) {
 			return result;
 		}
