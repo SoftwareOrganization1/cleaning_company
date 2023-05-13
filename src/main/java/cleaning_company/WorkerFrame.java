@@ -3,11 +3,12 @@ package cleaning_company;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+import java.util.logging.Logger;
 
 public class WorkerFrame extends javax.swing.JFrame {
 
-    Worker worker;
+	transient Worker worker;
+	Logger logger = Logger.getLogger(getClass().getName());
    
     public WorkerFrame() {
         initComponents();
@@ -19,17 +20,19 @@ public class WorkerFrame extends javax.swing.JFrame {
     
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+    	javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        javax.swing.JButton jButton1 = new javax.swing.JButton();
+        javax.swing.JButton jButton2 = new javax.swing.JButton();
+        javax.swing.JToggleButton jToggleButton1 = new javax.swing.JToggleButton();
         jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addComponentListener(new java.awt.event.ComponentAdapter() {
+        	
+        	@Override
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                formComponentShown(evt);
+                formComponentShown();
             }
         });
 
@@ -45,13 +48,16 @@ public class WorkerFrame extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
 
+            @Override
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
         jTable1.addComponentListener(new java.awt.event.ComponentAdapter() {
+        	
+        	@Override
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                jTable1ComponentShown(evt);
+                jTable1ComponentShown();
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -59,28 +65,28 @@ public class WorkerFrame extends javax.swing.JFrame {
         jButton1.setText("Start work");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1ActionPerformed();
             }
         });
 
         jButton2.setText("Logout");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2ActionPerformed();
             }
         });
 
         jToggleButton1.setText("Done");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                jToggleButton1ActionPerformed();
             }
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "all", "waiting", "in treatment", "complete" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox1ItemStateChanged(evt);
+                jComboBox1ItemStateChanged();
             }
         });
 
@@ -119,11 +125,11 @@ public class WorkerFrame extends javax.swing.JFrame {
         pack();
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton1ActionPerformed() {
         
         Product temp = getProductFromTable();
         if (temp != null) {
-            Product prod = CleaningCompanyApp.changeOrderStatus(temp.id, "in treatment");
+           
             String status = jComboBox1.getSelectedItem().toString();
             showOrders(status);
         }
@@ -132,27 +138,27 @@ public class WorkerFrame extends javax.swing.JFrame {
         
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton2ActionPerformed() {
 
         LoginJFrame f = new LoginJFrame();
         f.setVisible(true);
         this.dispose();
     }
 
-    private void jTable1ComponentShown(java.awt.event.ComponentEvent evt) {
-
+    private void jTable1ComponentShown() {
+    	// This default constructor is intentionally left empty
     }
 
-    private void formComponentShown(java.awt.event.ComponentEvent evt) {
+    private void formComponentShown() {
 
         showOrders("all");
     }
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jToggleButton1ActionPerformed() {
 
         Product temp = getProductFromTable();
         if (temp != null) {
-            Product prod = CleaningCompanyApp.changeOrderStatus(temp.id, "complete");
+          
             String status = jComboBox1.getSelectedItem().toString();
             showOrders(status);
         }
@@ -160,14 +166,14 @@ public class WorkerFrame extends javax.swing.JFrame {
         
     }
 
-    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {
+    private void jComboBox1ItemStateChanged() {
 
         String status = jComboBox1.getSelectedItem().toString();
         showOrders(status);
     }
 
   
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -176,15 +182,12 @@ public class WorkerFrame extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(WorkerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(WorkerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(WorkerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        }
+
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(WorkerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+
        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -195,7 +198,8 @@ public class WorkerFrame extends javax.swing.JFrame {
     
     
     public void showOrders(String status) {
-        System.out.println("showOrders");
+    	 
+    	logger.info("showOrders");
         CleaningCompanyApp.loadUsers();
         
         DefaultTableModel tbmode1=(DefaultTableModel)jTable1.getModel();
@@ -205,7 +209,7 @@ public class WorkerFrame extends javax.swing.JFrame {
         for (int i = 0; i < CleaningCompanyApp.products.size(); i++) {
             Product p1 = CleaningCompanyApp.products.get(i);
             if (p1.workerId == worker.id && (p1.status.equals(status)|| status.equals("all") )) {
-                String tbData[] = CleaningCompanyApp.products.get(i).toArrayString(true);
+                String[] tbData = CleaningCompanyApp.products.get(i).toArrayString(true);
                 tbmode1.addRow(tbData);
             }
             
@@ -214,27 +218,25 @@ public class WorkerFrame extends javax.swing.JFrame {
     
     public Product getProductFromTable() {
         int selRow = jTable1.getSelectedRow();
-        System.out.println(selRow);
-        boolean found = false;
+        logger.info(String.valueOf(selRow));
+       
         Product product = null;
         if (selRow == -1) {
             JOptionPane.showMessageDialog(null,"Please select Product" );
             return null;
         }
         if (selRow > -1) {
-            String product_id = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-            product = CleaningCompanyApp.getProduct(Integer.parseInt(product_id));
+            String productId = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
+            product = CleaningCompanyApp.getProduct(Integer.parseInt(productId));
         }
         
         return product;
     }
 
    
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JToggleButton jToggleButton1;
+    
     
 }
