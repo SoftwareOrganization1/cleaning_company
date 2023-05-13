@@ -204,7 +204,7 @@ public class WorkerFrame extends javax.swing.JFrame {
         }
         for (int i = 0; i < CleaningCompanyApp.products.size(); i++) {
             Product p1 = CleaningCompanyApp.products.get(i);
-            if (p1.worker_id == worker.id && (p1.status.equals(status)|| status.equals("all") )) {
+            if (p1.workerId == worker.id && (p1.status.equals(status)|| status.equals("all") )) {
                 String tbData[] = CleaningCompanyApp.products.get(i).toArrayString(true);
                 tbmode1.addRow(tbData);
             }

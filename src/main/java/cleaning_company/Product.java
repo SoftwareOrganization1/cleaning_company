@@ -8,9 +8,9 @@ import static cleaning_company.CleaningCompanyApp.workers;
 public class Product {
     
     int id;
-    int customer_id;
-    int worker_id;
-    int invoice_id;
+    int customerId;
+    int workerId;
+    int invoiceId;
     String status;
     String name;
     String description;
@@ -28,7 +28,7 @@ public class Product {
     public void loadCustomer() {
         for (int i = 0; i < customers.size(); i++) {
             Customer c = customers.get(i);
-            if (c.id == customer_id) {
+            if (c.id == customerId) {
                 customerName = c.name;
                 break;
             }
@@ -36,7 +36,7 @@ public class Product {
         
         for (int i = 0; i < workers.size(); i++) {
             Worker w = workers.get(i);
-            if (w.id == worker_id) {
+            if (w.id == workerId) {
                 workerName = w.name;
                 break;
             }
@@ -44,11 +44,12 @@ public class Product {
     }
     
     public Product() {
-
+        // This default constructor is intentionally left empty
     }
     
     public String[] toArrayString() {
-        String [] row = {String.valueOf(id),
+        return new String[] {
+            String.valueOf(id),
             customerName,
             name,
             description,
@@ -59,12 +60,19 @@ public class Product {
             String.valueOf(price),
             isPaid ? "yes" : "No"
         };
-        return row;
     }
+
     
     public String[] toArrayString(boolean showCustomer) {
-        if (showCustomer){
-            String [] row = {String.valueOf(id),customerName, name,description,String.valueOf(quantity),workerName, status,
+        if (showCustomer) {
+            return new String[] {
+                String.valueOf(id),
+                customerName,
+                name,
+                description,
+                String.valueOf(quantity),
+                workerName,
+                status,
                 address,
                 String.valueOf(price),
                 String.valueOf(deliveryCost),
@@ -72,17 +80,24 @@ public class Product {
                 String.valueOf(totalAmount),
                 isPaid ? "yes" : "No"
             };
-            return row;
+        } else {
+            return new String[] {
+                String.valueOf(id),
+                name,
+                description,
+                String.valueOf(quantity),
+                workerName,
+                status,
+                address,
+                String.valueOf(price),
+                String.valueOf(deliveryCost),
+                String.valueOf(discount),
+                String.valueOf(totalAmount),
+                isPaid ? "yes" : "No"
+            };
         }
-        String [] row = {String.valueOf(id),name,description,String.valueOf(quantity),workerName, status, address,
-            String.valueOf(price),
-            String.valueOf(deliveryCost),
-            String.valueOf(discount),
-            String.valueOf(totalAmount),
-            isPaid ? "yes" : "No"
-        };
-        return row;
     }
+
     
     @Override
     public String toString() {

@@ -112,7 +112,7 @@ public class CleaningCompanyApp {
 			int orders = 0;
 			for (int j = 0; j < products.size(); j++) {
 				Product p = products.get(j);
-				if (p.worker_id == temp.id && !p.status.equals("complete")) {
+				if (p.workerId == temp.id && !p.status.equals("complete")) {
 					orders++;
 				}
 			}
@@ -167,8 +167,8 @@ public class CleaningCompanyApp {
 
 		Product order = new Product();
 		order.id = lastId + 1;
-		order.customer_id = customerId;
-		order.worker_id = 0;
+		order.customerId = customerId;
+		order.workerId = 0;
 		order.name = name;
 		order.description = desc;
 		order.quantity = quantity;
@@ -176,7 +176,7 @@ public class CleaningCompanyApp {
 		order.address = address;
 		Worker w = getAvaliableWorker();
 		if (w != null) {
-			order.worker_id = w.id;
+			order.workerId = w.id;
 		}
 
 		order.loadCustomer();

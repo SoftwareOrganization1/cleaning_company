@@ -159,7 +159,7 @@ public class CustomerFrame extends javax.swing.JFrame {
             tbmode1.removeRow(0);
         }
         for (int i = 0; i < CleaningCompanyApp.products.size(); i++) {
-            if (CleaningCompanyApp.products.get(i).customer_id == customer.id) {
+            if (CleaningCompanyApp.products.get(i).customerId == customer.id) {
                 String[] tbData = CleaningCompanyApp.products.get(i).toArrayString(false);
                 tbmode1.addRow(tbData);
             }
