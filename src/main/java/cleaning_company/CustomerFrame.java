@@ -1,12 +1,15 @@
 
 package cleaning_company;
 
+import java.util.logging.Logger;
+
 import javax.swing.table.DefaultTableModel;
 
 
 public class CustomerFrame extends javax.swing.JFrame {
 
-    Customer customer;
+	transient Customer customer;
+	private static final Logger logger = Logger.getLogger(CustomerFrame.class.getName());
     
     public CustomerFrame() {
         initComponents();
@@ -18,15 +21,17 @@ public class CustomerFrame extends javax.swing.JFrame {
     
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+    	javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        javax.swing.JButton jButton1 = new javax.swing.JButton();
+        javax.swing.JButton jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addComponentListener(new java.awt.event.ComponentAdapter() {
+        	
+        	@Override
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                formComponentShown(evt);
+                formComponentShown();
             }
         });
 
@@ -41,14 +46,18 @@ public class CustomerFrame extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            
 
+            @Override
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
         jTable1.addComponentListener(new java.awt.event.ComponentAdapter() {
+        	
+        	@Override
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                jTable1ComponentShown(evt);
+                jTable1ComponentShown();
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -56,14 +65,14 @@ public class CustomerFrame extends javax.swing.JFrame {
         jButton1.setText("Add order");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1ActionPerformed();
             }
         });
 
         jButton2.setText("Logout");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2ActionPerformed();
             }
         });
 
@@ -96,30 +105,30 @@ public class CustomerFrame extends javax.swing.JFrame {
         pack();
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton1ActionPerformed() {
         AddEditOrderDialog dialog = new AddEditOrderDialog(this, rootPaneCheckingEnabled);
         dialog.customerId = customer.id;
         dialog.setVisible(rootPaneCheckingEnabled);
-        System.out.println(" the result" + dialog.result);
+        logger.info("The result: " + dialog.result);
         if (dialog.result.equals("added")) {
             showOrders();
         }
     }
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton2ActionPerformed() {
         LoginJFrame f = new LoginJFrame();
         f.setVisible(true);
         this.dispose();
     }
 
-    private void jTable1ComponentShown(java.awt.event.ComponentEvent evt) {
+    private void jTable1ComponentShown() {
         showOrders();
     }
 
-    private void formComponentShown(java.awt.event.ComponentEvent evt) {
+    private void formComponentShown() {
         showOrders();
     }
     
-    public static void main(String args[]) {
+    public static void main(String[] args) {
        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -128,13 +137,8 @@ public class CustomerFrame extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } 
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CustomerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
        
@@ -147,7 +151,7 @@ public class CustomerFrame extends javax.swing.JFrame {
     
     
     public void showOrders() {
-        System.out.println("showOrders");
+    	logger.info("showOrders");
         CleaningCompanyApp.loadUsers();
         
         DefaultTableModel tbmode1=(DefaultTableModel)jTable1.getModel();
@@ -156,7 +160,7 @@ public class CustomerFrame extends javax.swing.JFrame {
         }
         for (int i = 0; i < CleaningCompanyApp.products.size(); i++) {
             if (CleaningCompanyApp.products.get(i).customer_id == customer.id) {
-                String tbData[] = CleaningCompanyApp.products.get(i).toArrayString(false);
+                String[] tbData = CleaningCompanyApp.products.get(i).toArrayString(false);
                 tbmode1.addRow(tbData);
             }
             
@@ -164,9 +168,8 @@ public class CustomerFrame extends javax.swing.JFrame {
     }
 
    
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JScrollPane jScrollPane1;
+   
+   
     private javax.swing.JTable jTable1;
    
 }
