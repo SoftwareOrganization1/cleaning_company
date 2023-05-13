@@ -6,7 +6,8 @@ import javax.swing.JOptionPane;
 
 public class SignUpFrame extends javax.swing.JFrame {
 
-    
+	String segoeUI="Segoe UI";
+	
     public SignUpFrame() {
         initComponents();
         setLocationRelativeTo(null);
@@ -17,58 +18,58 @@ public class SignUpFrame extends javax.swing.JFrame {
     
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+    	javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+    	javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+    	javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
+    	javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
+    	javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        javax.swing.JButton jButton1 = new javax.swing.JButton();
+        javax.swing.JButton jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(800, 500));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jLabel1.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel1.setText("Email");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jLabel2.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel2.setText("Name");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jLabel3.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel3.setText("Password");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jLabel4.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel4.setText("Address");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jLabel5.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel5.setText("Phone");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jTextField1.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jTextField2.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jTextField3.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jTextField4.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jPasswordField1.setFont(new java.awt.Font(segoeUI, 0, 18)); 
 
         jButton1.setText("SignUp");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1ActionPerformed();
             }
         });
 
         jButton2.setText("Login");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2ActionPerformed();
             }
         });
 
@@ -135,14 +136,14 @@ public class SignUpFrame extends javax.swing.JFrame {
 
         pack();
     }
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton2ActionPerformed() {
         
         LoginJFrame frame = new LoginJFrame();
         frame.setVisible(true);
         this.dispose();
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton1ActionPerformed() {
 
         String name = jTextField1.getText();
         String email = jTextField2.getText();
@@ -161,7 +162,7 @@ public class SignUpFrame extends javax.swing.JFrame {
         }
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
 
         try {
@@ -171,13 +172,9 @@ public class SignUpFrame extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SignUpFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SignUpFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SignUpFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } 
+
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(SignUpFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
@@ -190,13 +187,8 @@ public class SignUpFrame extends javax.swing.JFrame {
     }
 
     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+   
+   
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

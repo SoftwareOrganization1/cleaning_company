@@ -18,9 +18,9 @@ public class Worker {
     }
 
     
-    public Worker(String _email, String _password) {
-            email = _email;
-            password = _password;
+    public Worker(String email, String password) {
+            this.email = email;
+            this.password = password;
     }
     
     @Override
@@ -29,7 +29,7 @@ public class Worker {
     }
     
     public String[] toArrayString() {
-        String [] row = {String.valueOf(id),name,email,phone, address};
-        return row;
+        return new String[]{String.valueOf(id), name, email, phone, address};
     }
+
 }

@@ -14,16 +14,16 @@ public class User {
     }
 
     
-    public User(String _email, String _password) {
-            email = _email;
-            password = _password;
+    public User(String email, String password) {
+           this.email = email;
+            this.password = password;
     }
     
-    public User(int _id, String _name, String _email, String _password) {
-	        id = _id;
-	        name = _name;
-	        email = _email;
-            password = _password;
+    public User(int id, String name, String email, String password) {
+	        this.id = id;
+	        this.name = name;
+	        this.email = email;
+            this.password = password;
     }
     
     

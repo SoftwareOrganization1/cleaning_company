@@ -10,7 +10,8 @@ public class LoginJFrame extends javax.swing.JFrame {
 	
 	String num="123123";
 	String segoeUI="Segoe UI";
-	private static final Logger logger = Logger.getLogger(CustomerFrame.class.getName());
+	private static final Logger logger = Logger.getLogger(LoginJFrame.class.getName());
+
 
     public LoginJFrame() {
         initComponents();
