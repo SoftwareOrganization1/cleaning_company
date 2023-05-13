@@ -1,17 +1,23 @@
 
 package cleaning_company;
 
+import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 
 
 public class LoginJFrame extends javax.swing.JFrame {
+	
+	String num="123123";
+	String segoeUI="Segoe UI";
+	private static final Logger logger = Logger.getLogger(CustomerFrame.class.getName());
 
     public LoginJFrame() {
         initComponents();
         setLocationRelativeTo(null);
         
         jTextField1.setText("customer1@app.com");
-        jPasswordField1.setText("123123");
+        jPasswordField1.setText(num);
     }
 
    
@@ -19,47 +25,51 @@ public class LoginJFrame extends javax.swing.JFrame {
    
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+    	javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+    	javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
+        javax.swing.JButton jButton1 = new javax.swing.JButton();
+        javax.swing.JButton jButton2 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); 
+        jLabel1.setFont(new java.awt.Font(segoeUI, 0, 36)); 
         jLabel1.setText("Welcome");
         jLabel1.setToolTipText("");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jLabel2.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel2.setText("Email");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        	
+        	@Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                jLabel2MouseClicked();
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); 
+        jLabel3.setFont(new java.awt.Font(segoeUI, 0, 18)); 
         jLabel3.setText("Password");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        	
+        	@Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                jLabel3MouseClicked();
             }
         });
 
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1ActionPerformed();
             }
         });
 
         jButton2.setText("SignUp");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2ActionPerformed();
             }
         });
 
@@ -109,7 +119,7 @@ public class LoginJFrame extends javax.swing.JFrame {
         pack();
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton1ActionPerformed() {
 
         String email = jTextField1.getText();
         String password = new String(jPasswordField1.getPassword());
@@ -119,13 +129,13 @@ public class LoginJFrame extends javax.swing.JFrame {
         if (result == null) {
             JOptionPane.showMessageDialog(rootPane, "Invalid Email or Password");
         } else {
-            String UserType = CleaningCompanyApp.getUserType(result);
+            String userType  = CleaningCompanyApp.getUserType(result);
             
-            if (UserType.equals("Customer")) {
+            if (userType .equals("Customer")) {
                 CustomerFrame cFrame = new CustomerFrame();
                 cFrame.customer = (Customer) result;
                 cFrame.setVisible(true);
-            } else if (UserType.equals("Admin")) {
+            } else if (userType .equals("Admin")) {
                 AdminDashbordFrame aFrame = new AdminDashbordFrame();
                 aFrame.user = (User) result;
                 aFrame.setVisible(true);
@@ -136,29 +146,30 @@ public class LoginJFrame extends javax.swing.JFrame {
             }
             this.dispose();
         }
-        System.out.println(result);
+        logger.info((String) result);
+
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton2ActionPerformed() {
 
         SignUpFrame frame = new SignUpFrame();
         frame.setVisible(true);
         this.dispose();
     }
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {
+    private void jLabel2MouseClicked() {
 
         jTextField1.setText("admin@app.com");
-        jPasswordField1.setText("123123");
+        jPasswordField1.setText(num);
     }
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {
+    private void jLabel3MouseClicked() {
 
         jTextField1.setText("customer1@app.com");
-        jPasswordField1.setText("123123");
+        jPasswordField1.setText(num);
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
 
         try {
@@ -168,15 +179,12 @@ public class LoginJFrame extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } 
+
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+
 
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -187,11 +195,8 @@ public class LoginJFrame extends javax.swing.JFrame {
     }
 
 
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    
+    
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     

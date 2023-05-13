@@ -1,7 +1,6 @@
 package cleaning_company;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 public class Main extends JFrame{
 
