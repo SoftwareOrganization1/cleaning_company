@@ -15,14 +15,13 @@ public class Customer {
 
     }
     
-    public Customer(String _email, String _password) {
-            email = _email;
-            password = _password;
+    public Customer(String email, String password) {
+           this.email = email;
+            this.password = password;
     }
     
     public String[] toArrayString() {
-        String [] row = {String.valueOf(id),name,email,phone, address};
-        return row;
+        return new String[]{String.valueOf(id), name, email, phone, address};
     }
     
     @Override

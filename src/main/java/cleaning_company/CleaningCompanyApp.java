@@ -243,15 +243,15 @@ public class CleaningCompanyApp {
 		if (!result.isEmpty()) {
 			return result;
 		}
-		int last_id = 0;
+		int lastId  = 0;
 		for (int i = 0; i < workers.size(); i++) {
 			Worker w = workers.get(i);
 			if (w.email.equals(email)) {
 				result = message ;
 				break;
 			}
-			if (w.id > last_id) {
-				last_id = w.id;
+			if (w.id > lastId ) {
+				lastId  = w.id;
 			}
 		}
 
@@ -276,7 +276,7 @@ public class CleaningCompanyApp {
 		}
 		
 		Worker worker = new Worker();
-		worker.id = last_id + 1;
+		worker.id = lastId  + 1;
 		worker.name = name;
 		worker.email = email;
 		worker.password = password;
@@ -295,15 +295,15 @@ public class CleaningCompanyApp {
 		if (!result.isEmpty()) {
 			return result;
 		}
-		int last_id = 0;
+		int lastId  = 0;
 		for (int i = 0; i < customers.size(); i++) {
 			Customer c = customers.get(i);
 			if (c.email.equals(email)) {
 				result = message ;
 				break;
 			}
-			if (c.id > last_id) {
-				last_id = c.id;
+			if (c.id > lastId ) {
+				lastId  = c.id;
 			}
 		}
 
@@ -328,7 +328,7 @@ public class CleaningCompanyApp {
 		}
 		
 		Customer customer = new Customer();
-		customer.id = last_id + 1;
+		customer.id = lastId  + 1;
 		customer.name = name;
 		customer.email = email;
 		customer.password = password;
